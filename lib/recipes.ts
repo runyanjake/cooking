@@ -23,6 +23,8 @@ export interface RecipeMetadata {
   author: string;
   description: string;
   featured: boolean;
+  display: boolean;
+  displayPhoto: string;
 }
 
 export interface Recipe extends RecipeMetadata {
@@ -55,20 +57,22 @@ function getOrPopulateRecipes(): Recipe[] {
 
   const mdxFiles = findMDXFiles(recipesDirectory);
 
-  const recipes = mdxFiles.map((filePath) => {
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const { data, content } = matter(fileContents);
+  const recipes = mdxFiles
+    .map((filePath) => {
+      const fileContents = fs.readFileSync(filePath, 'utf8');
+      const { data, content } = matter(fileContents);
 
-    const folderPath = path.dirname(filePath);
-    const relativePath = path.relative(recipesDirectory, folderPath);
+      const folderPath = path.dirname(filePath);
+      const relativePath = path.relative(recipesDirectory, folderPath);
 
-    return {
-      ...(data as RecipeMetadata),
-      filePath,
-      folderPath: relativePath,
-      content,
-    };
-  });
+      return {
+        ...(data as RecipeMetadata),
+        filePath,
+        folderPath: relativePath,
+        content,
+      };
+    })
+    .filter((recipe) => recipe.display !== false);
 
   const sortedRecipes = recipes.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
@@ -113,33 +117,8 @@ export function getRecipeBySlug(slug: string): Recipe | undefined {
 }
 
 export function getRecipeByCategoryAndSlug(category: string, slug: string): Recipe | undefined {
-  const categoryPath = path.join(recipesDirectory, category);
-
-  if (!fs.existsSync(categoryPath)) {
-    return undefined;
-  }
-
-  const mdxFiles = findMDXFiles(categoryPath);
-
-  for (const filePath of mdxFiles) {
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const { data, content } = matter(fileContents);
-    const metadata = data as RecipeMetadata;
-
-    if (metadata.slug === slug && metadata.category === category) {
-      const folderPath = path.dirname(filePath);
-      const relativePath = path.relative(recipesDirectory, folderPath);
-
-      return {
-        ...metadata,
-        filePath,
-        folderPath: relativePath,
-        content,
-      };
-    }
-  }
-
-  return undefined;
+  const allRecipes = getOrPopulateRecipes();
+  return allRecipes.find((recipe) => recipe.category === category && recipe.slug === slug);
 }
 
 export function searchRecipes(query: string): Recipe[] {

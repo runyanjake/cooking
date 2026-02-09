@@ -52,6 +52,8 @@ servings: 4
 author: "Author Name"
 description: "Short description for SEO and previews"
 featured: true
+display: true
+displayPhoto: "./assets/hero.jpg"
 ---
 ```
 
@@ -71,6 +73,8 @@ featured: true
 - `author` - Author ID (references `../authors.json`)
 - `description` - Brief description for SEO and cards
 - `featured` - Boolean for homepage featuring
+- `display` - Boolean to control visibility (set to false to hide recipe)
+- `displayPhoto` - Relative path to display photo (e.g., "./assets/hero.jpg")
 
 **Note:** Use IDs from the reference files (`data/authors.json` and `data/taxonomy.json`) to ensure consistency and enable validation.
 
@@ -103,6 +107,8 @@ servings: 4
 author: "PWS"
 description: "Short description for SEO and previews"
 featured: false
+display: true
+displayPhoto: "./assets/hero.jpg"
 ---
 
 # Recipe Name

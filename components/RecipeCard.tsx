@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import type { RecipeMetadata } from '@/lib/recipes';
 
 interface RecipeCardProps {
@@ -6,13 +7,27 @@ interface RecipeCardProps {
 }
 
 export default function RecipeCard({ recipe }: RecipeCardProps) {
+  const imageRelativePath = recipe.displayPhoto.startsWith('./')
+    ? `${recipe.folderPath}/${recipe.displayPhoto.replace('./', '')}`
+    : recipe.displayPhoto;
+
+  const normalizedPath = imageRelativePath.replace(/\\/g, '/');
+  const imageSrc = `/api/recipe-image?path=${encodeURIComponent(normalizedPath)}`;
+
   return (
     <Link
       href={`/recipes/${recipe.category}/${recipe.slug}`}
       className="group block bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
     >
-      <div className="aspect-video bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-4xl">
-        📷
+      <div className="aspect-video bg-gray-200 dark:bg-gray-700 relative overflow-hidden">
+        <Image
+          src={imageSrc}
+          alt={recipe.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          unoptimized
+        />
       </div>
 
       <div className="p-4 space-y-2">
