@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-const recipesDirectory = path.join(process.cwd(), 'data/recipes');
+const recipesDirectory = path.join(process.cwd(), 'public/recipes');
 
 // Cache to avoid repeated file system walks
 let recipesCache: Recipe[] | null = null;

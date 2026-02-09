@@ -6,7 +6,12 @@
       "Bash(npm --version:*)",
       "Bash(where:*)",
       "Bash(npm install:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(node scripts/copy-recipe-assets.js:*)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(timeout 10 npm run dev:*)",
+      "Bash(grep:*)"
     ]
   }
 }

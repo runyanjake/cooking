@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
+import SelectedTags from './SelectedTags';
+import TagSelector from './TagSelector';
 
 interface RecipesSidebarProps {
   categories: string[];
   tags: string[];
   onFilterChange: (filters: FilterState) => void;
-  isOpen: boolean;
-  onToggle: () => void;
 }
 
 export interface FilterState {
@@ -16,13 +16,12 @@ export interface FilterState {
   selectedTags: string[];
 }
 
-export default function RecipesSidebar({ categories, tags, onFilterChange, isOpen, onToggle }: RecipesSidebarProps) {
+export default function RecipesSidebar({ categories, tags, onFilterChange }: RecipesSidebarProps) {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [showAllTags, setShowAllTags] = useState(false);
 
-  useMemo(() => {
+  useEffect(() => {
     onFilterChange({ search, category, selectedTags });
   }, [search, category, selectedTags, onFilterChange]);
 
@@ -32,6 +31,14 @@ export default function RecipesSidebar({ categories, tags, onFilterChange, isOpe
     );
   };
 
+  const handleRemoveTag = (tag: string) => {
+    setSelectedTags((prev) => prev.filter((t) => t !== tag));
+  };
+
+  const handleClearTags = () => {
+    setSelectedTags([]);
+  };
+
   const handleClearFilters = () => {
     setSearch('');
     setCategory('');
@@ -39,18 +46,10 @@ export default function RecipesSidebar({ categories, tags, onFilterChange, isOpe
   };
 
   const hasActiveFilters = search || category || selectedTags.length > 0;
-  const displayedTags = showAllTags ? tags : tags.slice(0, 10);
 
   return (
-    <aside>
-      <button
-        onClick={onToggle}
-        className="lg:hidden w-full mb-3 px-3 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
-      >
-        {isOpen ? '✕ Hide Filters' : '⚙️ Show Filters'}
-      </button>
-
-      <div className={`space-y-3 ${!isOpen ? 'hidden lg:block' : ''}`}>
+    <section aria-label="Recipe filters">
+      <div className="space-y-3">
         <div>
           <label htmlFor="search" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
             Search
@@ -84,55 +83,34 @@ export default function RecipesSidebar({ categories, tags, onFilterChange, isOpe
           </select>
         </div>
 
-        <div>
-          <div className="flex items-center justify-between mb-1">
-            <label className="block text-xs font-medium text-gray-700 dark:text-gray-300">
-              Tags
-            </label>
-            {selectedTags.length > 0 && (
-              <button
-                onClick={() => setSelectedTags([])}
-                className="text-xs text-blue-600 dark:text-blue-400 hover:underline"
-              >
-                Clear
-              </button>
-            )}
-          </div>
-          <div className="space-y-0.5 max-h-48 overflow-y-auto">
-            {displayedTags.map((tag) => (
-              <label
-                key={tag}
-                className="flex items-center gap-1.5 py-0.5 px-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
-              >
-                <input
-                  type="checkbox"
-                  checked={selectedTags.includes(tag)}
-                  onChange={() => handleTagToggle(tag)}
-                  className="rounded border-gray-300 dark:border-gray-600 text-blue-600 focus:ring-blue-500"
-                />
-                <span className="text-xs text-gray-700 dark:text-gray-300">{tag}</span>
-              </label>
-            ))}
-          </div>
-          {tags.length > 10 && (
-            <button
-              onClick={() => setShowAllTags(!showAllTags)}
-              className="text-xs text-blue-600 dark:text-blue-400 hover:underline mt-1"
-            >
-              {showAllTags ? 'Show less' : `Show ${tags.length - 10} more`}
-            </button>
-          )}
+        <div className="space-y-2">
+          <label className="block text-xs font-medium text-gray-700 dark:text-gray-300">
+            Tags
+          </label>
+
+          <SelectedTags
+            tags={selectedTags}
+            onRemove={handleRemoveTag}
+            onClear={handleClearTags}
+          />
+
+          <TagSelector
+            availableTags={tags}
+            selectedTags={selectedTags}
+            onToggleTag={handleTagToggle}
+          />
         </div>
 
         {hasActiveFilters && (
           <button
             onClick={handleClearFilters}
             className="w-full px-3 py-1.5 text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            aria-label="Clear all filters"
           >
             Clear All Filters
           </button>
         )}
       </div>
-    </aside>
+    </section>
   );
 }

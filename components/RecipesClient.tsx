@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import RecipesSidebar, { FilterState } from './RecipesSidebar';
+import RecipeLayout from './RecipeLayout';
+import { FilterState } from './RecipesSidebar';
 import RecipeCard from './RecipeCard';
 import type { Recipe } from '@/lib/recipes';
 
@@ -17,7 +18,6 @@ export default function RecipesClient({ recipes, categories, tags }: RecipesClie
     category: '',
     selectedTags: [],
   });
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const filteredRecipes = useMemo(() => {
     return recipes.filter((recipe) => {
@@ -44,42 +44,35 @@ export default function RecipesClient({ recipes, categories, tags }: RecipesClie
   }, [recipes, filters]);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-      <div className="lg:col-span-1">
-        <RecipesSidebar
-          categories={categories}
-          tags={tags}
-          onFilterChange={setFilters}
-          isOpen={sidebarOpen}
-          onToggle={() => setSidebarOpen(!sidebarOpen)}
-        />
+    <RecipeLayout
+      categories={categories}
+      tags={tags}
+      onFilterChange={setFilters}
+      showFilters={true}
+    >
+      <div className="mb-4 text-sm text-gray-600 dark:text-gray-400">
+        {filteredRecipes.length === recipes.length
+          ? `Showing all ${recipes.length} recipes`
+          : `Showing ${filteredRecipes.length} of ${recipes.length} recipes`}
       </div>
 
-      <div className="lg:col-span-4">
-        <div className="mb-4 text-sm text-gray-600 dark:text-gray-400">
-          {filteredRecipes.length === recipes.length
-            ? `Showing all ${recipes.length} recipes`
-            : `Showing ${filteredRecipes.length} of ${recipes.length} recipes`}
+      {filteredRecipes.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {filteredRecipes.map((recipe) => (
+            <RecipeCard key={recipe.slug} recipe={recipe} />
+          ))}
         </div>
-
-        {filteredRecipes.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {filteredRecipes.map((recipe) => (
-              <RecipeCard key={recipe.slug} recipe={recipe} />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-12">
-            <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-              No recipes found
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400">
-              Try adjusting your filters or search terms
-            </p>
-          </div>
-        )}
-      </div>
-    </div>
+      ) : (
+        <div className="text-center py-12">
+          <div className="text-6xl mb-4">🔍</div>
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            No recipes found
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400">
+            Try adjusting your filters or search terms
+          </p>
+        </div>
+      )}
+    </RecipeLayout>
   );
 }
