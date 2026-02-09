@@ -1,0 +1,16 @@
+{
+  "authors": [
+    {
+      "id": "jake",
+      "name": "jake",
+      "fullName": "Paul Wilson Smith",
+      "bio": "Home cook and food enthusiast sharing tested recipes and cooking techniques.",
+      "email": "jake@runyan.dev",
+      "website": "https://jake.runyan.dev",
+      "links": {
+        "github": "https://github.com/runyanjake"
+      },
+      "joinDate": "2026-01-01"
+    }
+  ]
+}

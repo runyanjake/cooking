@@ -1,0 +1,102 @@
+'use client';
+
+import Link from 'next/link';
+import RecipeTabs from './RecipeTabs';
+import type { Recipe } from '@/lib/recipes';
+import type { RecipeSection } from '@/lib/parseRecipe';
+
+interface RecipePageClientProps {
+  recipe: Recipe;
+  sections: RecipeSection[];
+}
+
+export default function RecipePageClient({ recipe, sections }: RecipePageClientProps) {
+  return (
+    <div className="min-h-screen p-6">
+      <article className="max-w-4xl mx-auto">
+        {/* Back navigation */}
+        <nav aria-label="Breadcrumb">
+          <Link
+            href="/recipes"
+            className="inline-flex items-center gap-2 mb-6 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            aria-label="Back to recipes list"
+          >
+            <span aria-hidden="true">←</span>
+            <span>Back to Recipes</span>
+          </Link>
+        </nav>
+
+        <header className="mb-8 space-y-4">
+          <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+            <span className="capitalize">{recipe.category}</span>
+            <span>•</span>
+            <time dateTime={recipe.date}>
+              Published {new Date(recipe.date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </time>
+            {recipe.lastUpdated !== recipe.date && (
+              <>
+                <span>•</span>
+                <time dateTime={recipe.lastUpdated}>
+                  Updated {new Date(recipe.lastUpdated).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+              </>
+            )}
+          </div>
+
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+            {recipe.title}
+          </h1>
+
+          <p className="text-xl text-gray-600 dark:text-gray-400">
+            {recipe.description}
+          </p>
+
+          <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400" role="list" aria-label="Recipe timing and details">
+            <div className="flex items-center gap-2" role="listitem">
+              <span className="font-medium">Prep:</span>
+              <span>{recipe.prepTime} min</span>
+            </div>
+            <div className="flex items-center gap-2" role="listitem">
+              <span className="font-medium">Cook:</span>
+              <span>{recipe.cookTime} min</span>
+            </div>
+            <div className="flex items-center gap-2" role="listitem">
+              <span className="font-medium">Total:</span>
+              <span>{recipe.totalTime} min</span>
+            </div>
+            <div className="flex items-center gap-2" role="listitem">
+              <span className="font-medium">Servings:</span>
+              <span>{recipe.servings}</span>
+            </div>
+            <div className="flex items-center gap-2" role="listitem">
+              <span className="font-medium">Difficulty:</span>
+              <span className="capitalize">{recipe.difficulty}</span>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-2" role="list" aria-label="Recipe tags">
+            {recipe.tags.map((tag) => (
+              <span
+                key={tag}
+                role="listitem"
+                className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </header>
+
+        <RecipeTabs sections={sections} folderPath={recipe.folderPath} />
+      </article>
+    </div>
+  );
+}
