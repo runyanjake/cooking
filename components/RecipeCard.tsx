@@ -8,9 +8,9 @@ interface RecipeCardProps {
 
 export default function RecipeCard({ recipe }: RecipeCardProps) {
   // Convert relative path to public URL
-  const imageSrc = recipe.displayPhoto.startsWith('./')
+  const imageSrc = recipe.displayPhoto && recipe.displayPhoto.startsWith('./')
     ? `/recipes/${recipe.folderPath}/${recipe.displayPhoto.replace('./', '')}`.replace(/\\/g, '/')
-    : recipe.displayPhoto;
+    : recipe.displayPhoto || null;
 
   return (
     <Link
@@ -19,14 +19,20 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
       aria-label={`View recipe: ${recipe.title}`}
     >
       <div className="aspect-video bg-gray-200 dark:bg-gray-700 relative overflow-hidden">
-        <Image
-          src={imageSrc}
-          alt={`${recipe.title} - Recipe photo`}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          unoptimized
-        />
+        {imageSrc ? (
+          <Image
+            src={imageSrc}
+            alt={`${recipe.title} - Recipe photo`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            unoptimized
+          />
+        ) : (
+          <div className="flex items-center justify-center h-full text-4xl text-gray-400 dark:text-gray-600">
+            🍽️
+          </div>
+        )}
       </div>
 
       <div className="p-4 space-y-2">
