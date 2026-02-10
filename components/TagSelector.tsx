@@ -48,7 +48,7 @@ export default function TagSelector({ availableTags, selectedTags, onToggleTag }
       {isOpen && (
         <div
           id="tag-selector-dropdown"
-          className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg z-50 max-h-80 flex flex-col"
+          className="mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg max-h-48 flex flex-col"
           role="dialog"
           aria-label="Tag selection"
         >
@@ -62,7 +62,6 @@ export default function TagSelector({ availableTags, selectedTags, onToggleTag }
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search tags..."
               className="w-full px-2 py-1.5 text-sm border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              autoFocus
               aria-describedby="tag-search-description"
             />
             <span id="tag-search-description" className="sr-only">

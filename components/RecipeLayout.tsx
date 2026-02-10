@@ -1,12 +1,14 @@
 'use client';
 
 import { useState, useCallback, ReactNode } from 'react';
-import RecipesSidebar, { type FilterState } from './RecipesSidebar';
+import RecipesSidebar from './RecipesSidebar';
+import type { FilterState } from '@/lib/types';
 
 interface RecipeLayoutProps {
   children: ReactNode;
   categories: string[];
   tags: string[];
+  filters?: FilterState;
   onFilterChange?: (filters: FilterState) => void;
   showFilters?: boolean;
 }
@@ -15,14 +17,15 @@ export default function RecipeLayout({
   children,
   categories,
   tags,
+  filters,
   onFilterChange,
   showFilters = true
 }: RecipeLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const handleFilterChange = useCallback((filters: FilterState) => {
+  const handleFilterChange = useCallback((newFilters: FilterState) => {
     if (onFilterChange) {
-      onFilterChange(filters);
+      onFilterChange(newFilters);
     }
   }, [onFilterChange]);
 
@@ -76,10 +79,11 @@ export default function RecipeLayout({
             </button>
 
             {/* Sidebar content */}
-            {showFilters && (
+            {showFilters && filters && (
               <RecipesSidebar
                 categories={categories}
                 tags={tags}
+                filters={filters}
                 onFilterChange={handleFilterChange}
               />
             )}

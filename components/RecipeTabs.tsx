@@ -127,7 +127,6 @@ export default function RecipeTabs({ sections, folderPath }: RecipeTabsProps) {
                     {children}
                   </h4>
                 ),
-                // Don't override <p> - let ReactMarkdown handle it to avoid hydration errors
                 code: ({ inline, children, ...props }: any) => {
                   if (inline) {
                     return (

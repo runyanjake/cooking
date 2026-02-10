@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { getAllRecipes, getAllCategories, getAllTags } from '@/lib/recipes';
 import RecipesClient from '@/components/RecipesClient';
@@ -23,7 +24,13 @@ export default function RecipesPage() {
         </p>
       </div>
 
-      <RecipesClient recipes={recipes} categories={categories} tags={tags} />
+      <Suspense fallback={
+        <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+          Loading recipes...
+        </div>
+      }>
+        <RecipesClient recipes={recipes} categories={categories} tags={tags} />
+      </Suspense>
     </div>
   );
 }

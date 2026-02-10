@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import RecipeLayout from './RecipeLayout';
-import { FilterState } from './RecipesSidebar';
 import RecipeCard from './RecipeCard';
 import type { Recipe } from '@/lib/recipes';
+import type { FilterState } from '@/lib/types';
 
 interface RecipesClientProps {
   recipes: Recipe[];
@@ -12,12 +13,52 @@ interface RecipesClientProps {
   tags: string[];
 }
 
+function parseFiltersFromParams(searchParams: URLSearchParams): FilterState {
+  return {
+    search: searchParams.get('search') || '',
+    category: searchParams.get('category') || '',
+    selectedTags: searchParams.get('tags')
+      ? [...new Set(searchParams.get('tags')!.split(',').filter(Boolean))]
+      : [],
+  };
+}
+
+function buildQueryString(filters: FilterState): string {
+  const params = new URLSearchParams();
+  if (filters.search) params.set('search', filters.search);
+  if (filters.category) params.set('category', filters.category);
+  if (filters.selectedTags.length > 0) params.set('tags', filters.selectedTags.join(','));
+  const qs = params.toString();
+  return qs ? `?${qs}` : '';
+}
+
 export default function RecipesClient({ recipes, categories, tags }: RecipesClientProps) {
-  const [filters, setFilters] = useState<FilterState>({
-    search: '',
-    category: '',
-    selectedTags: [],
-  });
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const [filters, setFilters] = useState<FilterState>(() =>
+    parseFiltersFromParams(searchParams)
+  );
+
+  // Track internal updates to avoid reacting to our own URL changes
+  const isInternalUpdate = useRef(false);
+
+  // Sync URL → state on browser back/forward
+  useEffect(() => {
+    if (isInternalUpdate.current) {
+      isInternalUpdate.current = false;
+      return;
+    }
+    setFilters(parseFiltersFromParams(searchParams));
+  }, [searchParams]);
+
+  // Update filters and sync to URL
+  const updateFilters = useCallback((newFilters: FilterState) => {
+    isInternalUpdate.current = true;
+    setFilters(newFilters);
+    router.replace(`${pathname}${buildQueryString(newFilters)}`, { scroll: false });
+  }, [router, pathname]);
 
   const filteredRecipes = useMemo(() => {
     return recipes.filter((recipe) => {
@@ -47,7 +88,8 @@ export default function RecipesClient({ recipes, categories, tags }: RecipesClie
     <RecipeLayout
       categories={categories}
       tags={tags}
-      onFilterChange={setFilters}
+      filters={filters}
+      onFilterChange={updateFilters}
       showFilters={true}
     >
       <div className="mb-4 text-sm text-gray-600 dark:text-gray-400">

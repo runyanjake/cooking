@@ -11,7 +11,9 @@
       "Bash(dir:*)",
       "Bash(findstr:*)",
       "Bash(timeout 10 npm run dev:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Read(//c/Users/runya/Documents/repositories/recipes/recipes/docs/**)",
+      "Bash(node scripts/import-recipes.js:*)"
     ]
   }
 }

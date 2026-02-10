@@ -28,7 +28,12 @@ export default function RecipePageClient({ recipe, sections }: RecipePageClientP
 
         <header className="mb-8 space-y-4">
           <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-            <span className="capitalize">{recipe.category}</span>
+            <Link
+              href={`/recipes?category=${encodeURIComponent(recipe.category)}`}
+              className="capitalize hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
+              {recipe.category}
+            </Link>
             <span>•</span>
             <time dateTime={recipe.date}>
               Published {new Date(recipe.date).toLocaleDateString('en-US', {
@@ -84,13 +89,14 @@ export default function RecipePageClient({ recipe, sections }: RecipePageClientP
 
           <div className="flex flex-wrap gap-2" role="list" aria-label="Recipe tags">
             {recipe.tags.map((tag) => (
-              <span
+              <Link
                 key={tag}
+                href={`/recipes?tags=${encodeURIComponent(tag)}`}
                 role="listitem"
-                className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full"
+                className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               >
                 {tag}
-              </span>
+              </Link>
             ))}
           </div>
         </header>

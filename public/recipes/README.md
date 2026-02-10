@@ -17,8 +17,8 @@ public/recipes/
 Each recipe follows this structure:
 ```
 public/recipes/category/
-└── YYYY.MM.DD-recipe-slug/
-    ├── YYYY.MM.DD-recipe-slug.mdx
+└── recipe-slug/
+    ├── recipe-slug.mdx
     └── assets/
         ├── hero.jpg
         ├── step1.jpg
@@ -64,21 +64,21 @@ displayPhoto: "./assets/hero.jpg"
 - `slug` - URL-friendly identifier
 - `date` - Publication date (YYYY-MM-DD)
 - `lastUpdated` - Last modification date (YYYY-MM-DD)
-- `category` - Main category ID (references `../taxonomy.json`)
-- `tags` - Array of tag IDs (references `../taxonomy.json`)
-- `dietary` - Array of dietary tag IDs (references `../taxonomy.json`)
+- `category` - Main category (free-form string, e.g. "mains", "soups")
+- `tags` - Array of tags (free-form strings, e.g. ["italian", "chicken"])
+- `dietary` - Array of dietary tags (free-form strings, e.g. ["gluten-free"])
 - `cookTime` - Active cooking time in minutes
 - `prepTime` - Preparation time in minutes
 - `totalTime` - Total time in minutes
-- `difficulty` - Difficulty ID: easy, medium, or hard (references `../taxonomy.json`)
+- `difficulty` - Difficulty level: easy, medium, or hard
 - `servings` - Number of servings
-- `author` - Author ID (references `../authors.json`)
+- `author` - Author ID (references `public/authors.json`)
 - `description` - Brief description for SEO and cards
 - `featured` - Boolean for homepage featuring
 - `display` - Boolean to control visibility (set to false to hide recipe)
 - `displayPhoto` - Relative path to display photo (e.g., "./assets/hero.jpg")
 
-**Note:** Use IDs from the reference files (`data/authors.json` and `data/taxonomy.json`) to ensure consistency and enable validation.
+**Note:** Author IDs must match entries in `public/authors.json`. Categories, tags, dietary, and difficulty are free-form strings — there is no taxonomy registry file.
 
 #### Content Sections
 
@@ -197,8 +197,8 @@ Choose from these categories:
 
 ## Adding New Recipes
 
-1. Create recipe folder: `public/recipes/[category]/YYYY.MM.DD-recipe-name/`
-2. Create `YYYY.MM.DD-recipe-name.mdx` with frontmatter and content
+1. Create recipe folder: `public/recipes/[category]/recipe-name/`
+2. Create `recipe-name.mdx` with frontmatter and content
 3. Create `assets/` subfolder for images
 4. Add images to the `assets/` folder
 5. Reference images in MDX using relative paths: `./assets/image.jpg`
@@ -207,7 +207,6 @@ Choose from these categories:
 
 ## Best Practices
 
-- Use consistent date formatting (YYYY.MM.DD)
 - Keep slugs URL-friendly (lowercase, hyphens)
 - Optimize images before adding (compress, resize)
 - Test recipes before publishing
