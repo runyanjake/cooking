@@ -10,11 +10,8 @@ date: "YYYY-MM-DD"
 lastUpdated: "YYYY-MM-DD"
 category: "mains"           # free-form string (e.g. "mains", "soups", "desserts")
 tags: ["tag1", "tag2"]      # free-form strings (e.g. ["italian", "chicken"])
-dietary: ["gluten-free"]    # free-form strings
 cookTime: 45                # minutes
 prepTime: 20                # minutes
-totalTime: 65               # minutes
-difficulty: "easy"          # easy | medium | hard
 servings: 4
 author: "PWS"               # ID from public/authors.json
 description: "Short description for SEO and previews"

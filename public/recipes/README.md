@@ -45,11 +45,8 @@ date: "YYYY-MM-DD"
 lastUpdated: "YYYY-MM-DD"
 category: "mains"
 tags: ["tag1", "tag2", "tag3"]
-dietary: ["vegetarian", "gluten-free"]
 cookTime: 45
 prepTime: 20
-totalTime: 65
-difficulty: "easy"
 servings: 4
 author: "Author Name"
 description: "Short description for SEO and previews"
@@ -66,11 +63,8 @@ displayPhoto: "./assets/hero.jpg"
 - `lastUpdated` - Last modification date (YYYY-MM-DD)
 - `category` - Main category (free-form string, e.g. "mains", "soups")
 - `tags` - Array of tags (free-form strings, e.g. ["italian", "chicken"])
-- `dietary` - Array of dietary tags (free-form strings, e.g. ["gluten-free"])
 - `cookTime` - Active cooking time in minutes
 - `prepTime` - Preparation time in minutes
-- `totalTime` - Total time in minutes
-- `difficulty` - Difficulty level: easy, medium, or hard
 - `servings` - Number of servings
 - `author` - Author ID (references `public/authors.json`)
 - `description` - Brief description for SEO and cards
@@ -78,7 +72,7 @@ displayPhoto: "./assets/hero.jpg"
 - `display` - Boolean to control visibility (set to false to hide recipe)
 - `displayPhoto` - Relative path to display photo (e.g., "./assets/hero.jpg")
 
-**Note:** Author IDs must match entries in `public/authors.json`. Categories, tags, dietary, and difficulty are free-form strings — there is no taxonomy registry file.
+**Note:** Author IDs must match entries in `public/authors.json`. Categories and tags are free-form strings — there is no taxonomy registry file.
 
 #### Content Sections
 
@@ -100,11 +94,8 @@ date: "2026-02-08"
 lastUpdated: "2026-02-08"
 category: "mains"
 tags: ["italian", "chicken"]
-dietary: ["gluten-free-option"]
 cookTime: 45
 prepTime: 20
-totalTime: 65
-difficulty: "medium"
 servings: 4
 author: "PWS"
 description: "Short description for SEO and previews"
@@ -189,11 +180,6 @@ Choose from these categories:
 - **Dietary**: gluten-free, dairy-free, low-carb, keto, paleo
 - **Cooking Method**: baking, grilling, slow-cooker, instant-pot
 - **Speed**: quick-meals, one-pot, make-ahead, no-cook
-
-### Difficulty Levels
-- **easy**: Beginner-friendly, simple techniques, common ingredients
-- **medium**: Some cooking experience needed, multiple steps
-- **hard**: Advanced techniques, precise timing, specialty equipment
 
 ## Adding New Recipes
 

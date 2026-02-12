@@ -46,25 +46,9 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
 
         <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-500" role="list" aria-label="Recipe details">
           <span className="flex items-center gap-1" role="listitem">
-            <span aria-hidden="true">⏱️</span>
-            <span className="sr-only">Total time: </span>
-            {recipe.totalTime} min
-          </span>
-          <span className="flex items-center gap-1" role="listitem">
             <span aria-hidden="true">👥</span>
             <span className="sr-only">Servings: </span>
             {recipe.servings} servings
-          </span>
-          <span
-            className="flex items-center gap-1"
-            role="listitem"
-            aria-label={`Difficulty: ${recipe.difficulty}`}
-          >
-            <span aria-hidden="true">
-              {recipe.difficulty === 'easy' && '⭐'}
-              {recipe.difficulty === 'medium' && '⭐⭐'}
-              {recipe.difficulty === 'hard' && '⭐⭐⭐'}
-            </span>
           </span>
         </div>
 

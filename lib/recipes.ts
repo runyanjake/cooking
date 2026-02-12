@@ -14,11 +14,8 @@ export interface RecipeMetadata {
   lastUpdated: string;
   category: string;
   tags: string[];
-  dietary: string[];
   cookTime: number;
   prepTime: number;
-  totalTime: number;
-  difficulty: string;
   servings: number;
   author: string;
   description: string;

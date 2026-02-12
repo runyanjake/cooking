@@ -74,16 +74,8 @@ export default function RecipePageClient({ recipe, sections }: RecipePageClientP
               <span>{recipe.cookTime} min</span>
             </div>
             <div className="flex items-center gap-2" role="listitem">
-              <span className="font-medium">Total:</span>
-              <span>{recipe.totalTime} min</span>
-            </div>
-            <div className="flex items-center gap-2" role="listitem">
               <span className="font-medium">Servings:</span>
               <span>{recipe.servings}</span>
-            </div>
-            <div className="flex items-center gap-2" role="listitem">
-              <span className="font-medium">Difficulty:</span>
-              <span className="capitalize">{recipe.difficulty}</span>
             </div>
           </div>
 
