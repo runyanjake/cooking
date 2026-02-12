@@ -3,14 +3,14 @@
     {
       "id": "jake",
       "name": "jake",
-      "fullName": "Paul Wilson Smith",
-      "bio": "Home cook and food enthusiast sharing tested recipes and cooking techniques.",
+      "fullName": "Jake Runyan",
+      "bio": "Home cook and food enthusiast sharing the things he makes at home.",
       "email": "jake@runyan.dev",
       "website": "https://jake.runyan.dev",
       "links": {
         "github": "https://github.com/runyanjake"
       },
-      "joinDate": "2026-01-01"
+      "joinDate": "1970-01-01"
     }
   ]
 }
