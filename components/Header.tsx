@@ -9,7 +9,7 @@ export default function Header() {
             href="/"
             className="text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
           >
-            Cooking
+            PWS Recipes
           </Link>
 
           <div className="flex space-x-8">

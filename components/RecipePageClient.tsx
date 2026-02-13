@@ -12,7 +12,7 @@ interface RecipePageClientProps {
 
 export default function RecipePageClient({ recipe, sections }: RecipePageClientProps) {
   return (
-    <div className="min-h-screen p-6">
+    <div>
       <article className="max-w-4xl mx-auto">
         {/* Back navigation */}
         <nav aria-label="Breadcrumb">
