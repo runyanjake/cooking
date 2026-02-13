@@ -21,7 +21,7 @@ app/                          # Next.js App Router pages
   recipes/
     page.tsx                  # Recipe listing (server, passes data to RecipesClient)
     [category]/[slug]/
-      page.tsx                # Recipe detail (server, passes data to RecipePageClient)
+      page.tsx                # Recipe detail (server, compiles MDX and renders via RecipePageLayout)
 
 components/
   Header.tsx / Footer.tsx     # Site chrome
@@ -31,8 +31,8 @@ components/
   SelectedTags.tsx            # Active tag chips
   TagSelector.tsx             # Tag dropdown picker
   RecipeGridCard.tsx          # Recipe grid card for listing page
-  RecipeCard.tsx              # MDX component — splits h2 children into tab sections
-  RecipePageClient.tsx        # Recipe detail page wrapper (server component)
+  RecipeCard.tsx              # MDX component — splits h2 children into tab sections (client)
+  RecipePageLayout.tsx        # Recipe detail page layout (server component)
 
 lib/
   recipes.ts                  # Recipe file loader with in-memory cache; reads from public/recipes/

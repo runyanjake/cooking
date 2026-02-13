@@ -17,7 +17,13 @@
       "Bash(powershell.exe -Command \"Test-Path ''c:\\\\Users\\\\runya\\\\Documents\\\\repositories\\\\cooking\\\\.next\\\\standalone\\\\server.js''\")",
       "Bash(powershell.exe -Command:*)",
       "Bash(node migrate-mdx.mjs:*)",
-      "Bash(node migrate-mdx.js:*)"
+      "Bash(node migrate-mdx.js:*)",
+      "Bash(curl:*)",
+      "Bash(node -e:*)",
+      "Bash(npm ls:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(node:*)",
+      "Bash(del \"c:\\\\Users\\\\runya\\\\Documents\\\\repositories\\\\cooking\\\\compact-cards.js\")"
     ]
   }
 }

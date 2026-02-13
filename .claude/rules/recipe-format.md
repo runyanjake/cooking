@@ -28,6 +28,7 @@ Content after frontmatter is compiled as MDX using `next-mdx-remote/rsc`. The `<
 - Markdown **before** `<RecipeCard>` renders as intro prose above the recipe card
 - Markdown **after** `</RecipeCard>` renders as outro prose below the recipe card
 - **Important**: a blank line after `<RecipeCard>` is required for MDX to parse the content inside as markdown
+- Blank lines after `## ` headings and before `</RecipeCard>` are optional — the compact form (no extra blank lines) is preferred
 
 ### `<RecipeCard>` Sections
 
@@ -70,7 +71,6 @@ This recipe uses brown lentils (whole Masoor Dal)...
 
 ## References
 - Reference Recipe **[HERE](https://example.com)**
-
 </RecipeCard>
 ```
 

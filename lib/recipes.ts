@@ -81,21 +81,6 @@ export function getAllRecipes(): Recipe[] {
   return getOrPopulateRecipes();
 }
 
-export function getRecipesByCategory(category: string): Recipe[] {
-  const allRecipes = getOrPopulateRecipes();
-  return allRecipes.filter((recipe) => recipe.category === category);
-}
-
-export function getRecipesByTag(tag: string): Recipe[] {
-  const allRecipes = getOrPopulateRecipes();
-  return allRecipes.filter((recipe) => recipe.tags.includes(tag));
-}
-
-export function getFeaturedRecipes(): Recipe[] {
-  const allRecipes = getOrPopulateRecipes();
-  return allRecipes.filter((recipe) => recipe.featured);
-}
-
 export function getAllCategories(): string[] {
   const allRecipes = getOrPopulateRecipes();
   const categories = new Set(allRecipes.map((recipe) => recipe.category));
@@ -108,27 +93,9 @@ export function getAllTags(): string[] {
   return Array.from(tags).sort();
 }
 
-export function getRecipeBySlug(slug: string): Recipe | undefined {
-  const allRecipes = getOrPopulateRecipes();
-  return allRecipes.find((recipe) => recipe.slug === slug);
-}
-
 export function getRecipeByCategoryAndSlug(category: string, slug: string): Recipe | undefined {
   const allRecipes = getOrPopulateRecipes();
   return allRecipes.find((recipe) => recipe.category === category && recipe.slug === slug);
-}
-
-export function searchRecipes(query: string): Recipe[] {
-  const allRecipes = getOrPopulateRecipes();
-  const lowerQuery = query.toLowerCase();
-
-  return allRecipes.filter((recipe) => {
-    return (
-      recipe.title.toLowerCase().includes(lowerQuery) ||
-      recipe.description.toLowerCase().includes(lowerQuery) ||
-      recipe.tags.some((tag) => tag.toLowerCase().includes(lowerQuery))
-    );
-  });
 }
 
 export function getAllRecipePaths(): Array<{ category: string; slug: string }> {

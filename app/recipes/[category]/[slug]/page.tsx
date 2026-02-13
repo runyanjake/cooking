@@ -4,7 +4,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import { getRecipeByCategoryAndSlug, getAllRecipePaths } from '@/lib/recipes';
 import RecipeCard from '@/components/RecipeCard';
-import RecipePageClient from '@/components/RecipePageClient';
+import RecipePageLayout from '@/components/RecipePageLayout';
 
 interface RecipePageProps {
   params: Promise<{
@@ -91,8 +91,8 @@ export default async function RecipePage({ params }: RecipePageProps) {
   });
 
   return (
-    <RecipePageClient recipe={recipe}>
+    <RecipePageLayout recipe={recipe}>
       {content}
-    </RecipePageClient>
+    </RecipePageLayout>
   );
 }
