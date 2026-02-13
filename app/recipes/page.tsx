@@ -20,7 +20,7 @@ export default function RecipesPage() {
           Recipes
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">
-          Explore our collection of {recipes.length} delicious recipes
+          Explore our collection of {recipes.length} delicious recipes!
         </p>
       </div>
 
