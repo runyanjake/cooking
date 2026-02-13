@@ -13,7 +13,9 @@
       "Bash(timeout 10 npm run dev:*)",
       "Bash(grep:*)",
       "Read(//c/Users/runya/Documents/repositories/recipes/recipes/docs/**)",
-      "Bash(node scripts/import-recipes.js:*)"
+      "Bash(node scripts/import-recipes.js:*)",
+      "Bash(powershell.exe -Command \"Test-Path ''c:\\\\Users\\\\runya\\\\Documents\\\\repositories\\\\cooking\\\\.next\\\\standalone\\\\server.js''\")",
+      "Bash(powershell.exe -Command:*)"
     ]
   }
 }

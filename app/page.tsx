@@ -64,7 +64,7 @@ export default function Home() {
           <div className="w-full md:w-2/5 space-y-4 text-center md:text-left">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">But Recipe Sites Suck!</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400">
-              Monetized recipe sites don't bother me, but I do mind when sites have overly aggressive ad integrations that block or move around the main content. Many modern sites share the same user-unfriendly plugins.
+              Monetized recipe sites don&apos;t bother me, but I do mind when sites have overly aggressive ad integrations that block or move around the main content. Many modern sites share the same user-unfriendly plugins.
             </p>
           </div>
         </div>
