@@ -1,16 +1,12 @@
-'use client';
-
 import Link from 'next/link';
-import RecipeTabs from './RecipeTabs';
 import type { Recipe } from '@/lib/recipes';
-import type { RecipeSection } from '@/lib/parseRecipe';
 
 interface RecipePageClientProps {
   recipe: Recipe;
-  sections: RecipeSection[];
+  children: React.ReactNode;
 }
 
-export default function RecipePageClient({ recipe, sections }: RecipePageClientProps) {
+export default function RecipePageClient({ recipe, children }: RecipePageClientProps) {
   return (
     <div>
       <article className="max-w-4xl mx-auto">
@@ -93,7 +89,10 @@ export default function RecipePageClient({ recipe, sections }: RecipePageClientP
           </div>
         </header>
 
-        <RecipeTabs sections={sections} folderPath={recipe.folderPath} />
+        {/* MDX content: intro prose + RecipeCard + outro prose */}
+        <div className="prose prose-lg dark:prose-invert max-w-none prose-p:text-gray-700 dark:prose-p:text-gray-300">
+          {children}
+        </div>
       </article>
     </div>
   );

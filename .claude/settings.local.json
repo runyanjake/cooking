@@ -15,7 +15,9 @@
       "Read(//c/Users/runya/Documents/repositories/recipes/recipes/docs/**)",
       "Bash(node scripts/import-recipes.js:*)",
       "Bash(powershell.exe -Command \"Test-Path ''c:\\\\Users\\\\runya\\\\Documents\\\\repositories\\\\cooking\\\\.next\\\\standalone\\\\server.js''\")",
-      "Bash(powershell.exe -Command:*)"
+      "Bash(powershell.exe -Command:*)",
+      "Bash(node migrate-mdx.mjs:*)",
+      "Bash(node migrate-mdx.js:*)"
     ]
   }
 }

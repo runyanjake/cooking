@@ -8,7 +8,7 @@ A personal recipe website. Content-first, no-nonsense. The name of the third hom
 
 - **Next.js 15** with App Router, TypeScript, Tailwind CSS
 - **MDX** for recipe content with YAML frontmatter
-- **ReactMarkdown + remark-gfm** for rendering recipe sections client-side
+- **next-mdx-remote/rsc + remark-gfm** for compiling MDX content server-side
 - **Static site generation (SSG)** — all pages are prerendered at build time
 - **No database** — recipes are MDX files on disk
 
@@ -30,13 +30,12 @@ components/
   RecipesSidebar.tsx          # Search + category + tag filters
   SelectedTags.tsx            # Active tag chips
   TagSelector.tsx             # Tag dropdown picker
-  RecipeCard.tsx              # Recipe grid card
-  RecipePageClient.tsx        # Recipe detail page wrapper
-  RecipeTabs.tsx              # Section tabs (Photos/Ingredients/Instructions/Notes/References)
+  RecipeGridCard.tsx          # Recipe grid card for listing page
+  RecipeCard.tsx              # MDX component — splits h2 children into tab sections
+  RecipePageClient.tsx        # Recipe detail page wrapper (server component)
 
 lib/
   recipes.ts                  # Recipe file loader with in-memory cache; reads from public/recipes/
-  parseRecipe.ts              # Splits MDX content into ## sections for tabs
 
 public/
   assets/                     # Site-level images (homepage SVGs)

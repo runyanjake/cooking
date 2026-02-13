@@ -21,15 +21,58 @@ displayPhoto: "./assets/hero.jpg"
 ---
 ```
 
-## Content Sections
+## Content Structure
 
-Content uses `## ` (h2) headings to define tabs rendered in the UI:
+Content after frontmatter is compiled as MDX using `next-mdx-remote/rsc`. The `<RecipeCard>` JSX component wraps recipe sections and renders them as tabs in the UI.
+
+- Markdown **before** `<RecipeCard>` renders as intro prose above the recipe card
+- Markdown **after** `</RecipeCard>` renders as outro prose below the recipe card
+- **Important**: a blank line after `<RecipeCard>` is required for MDX to parse the content inside as markdown
+
+### `<RecipeCard>` Sections
+
+`## ` (H2) headings inside `<RecipeCard>` define tabs:
 
 - `## Photos` — images with italic captions (`*caption text*`)
 - `## Ingredients` — bullet lists, optionally grouped with h3 subheadings
 - `## Instructions` — numbered steps, optionally grouped with h3 subheadings
 - `## Notes` — tips, variations, storage (optional)
 - `## References` — credits and sources (optional)
+
+### Example
+
+```mdx
+---
+title: "Lentils"
+description: "A neutral lentil dish."
+...
+---
+
+This recipe uses brown lentils (whole Masoor Dal)...
+
+<RecipeCard>
+
+## Photos
+![Hero](./assets/hero.jpg)
+*Finished lentils*
+
+## Ingredients
+- 1 cup brown lentils
+...
+
+## Instructions
+1. Rinse lentils...
+...
+
+## Notes
+### Tips
+- Try with different lentils!
+
+## References
+- Reference Recipe **[HERE](https://example.com)**
+
+</RecipeCard>
+```
 
 ## Image Paths
 

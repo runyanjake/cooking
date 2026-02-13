@@ -3,7 +3,7 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import RecipeLayout from './RecipeLayout';
-import RecipeCard from './RecipeCard';
+import RecipeGridCard from './RecipeGridCard';
 import type { Recipe } from '@/lib/recipes';
 import type { FilterState } from '@/lib/types';
 
@@ -101,7 +101,7 @@ export default function RecipesClient({ recipes, categories, tags }: RecipesClie
       {filteredRecipes.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {filteredRecipes.map((recipe) => (
-            <RecipeCard key={recipe.slug} recipe={recipe} />
+            <RecipeGridCard key={recipe.slug} recipe={recipe} />
           ))}
         </div>
       ) : (
