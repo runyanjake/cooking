@@ -73,6 +73,9 @@ export default function RecipeTabs({ sections, folderPath }: RecipeTabsProps) {
             prose-td:border prose-td:border-gray-300 dark:prose-td:border-gray-600
             ${activeSection.title === 'Photos' ? 'prose-img:w-full prose-img:max-w-2xl prose-img:mx-auto' : ''}
           `}>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              {activeSection.title}
+            </h2>
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={{
