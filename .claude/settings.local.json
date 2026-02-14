@@ -1,29 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx create-next-app@latest:*)",
-      "Bash(node --version:*)",
-      "Bash(npm --version:*)",
-      "Bash(where:*)",
-      "Bash(npm install:*)",
-      "Bash(npm run build:*)",
-      "Bash(node scripts/copy-recipe-assets.js:*)",
-      "Bash(dir:*)",
-      "Bash(findstr:*)",
-      "Bash(timeout 10 npm run dev:*)",
-      "Bash(grep:*)",
-      "Read(//c/Users/runya/Documents/repositories/recipes/recipes/docs/**)",
-      "Bash(node scripts/import-recipes.js:*)",
-      "Bash(powershell.exe -Command \"Test-Path ''c:\\\\Users\\\\runya\\\\Documents\\\\repositories\\\\cooking\\\\.next\\\\standalone\\\\server.js''\")",
-      "Bash(powershell.exe -Command:*)",
-      "Bash(node migrate-mdx.mjs:*)",
-      "Bash(node migrate-mdx.js:*)",
-      "Bash(curl:*)",
-      "Bash(node -e:*)",
-      "Bash(npm ls:*)",
-      "Bash(npm uninstall:*)",
-      "Bash(node:*)",
-      "Bash(del \"c:\\\\Users\\\\runya\\\\Documents\\\\repositories\\\\cooking\\\\compact-cards.js\")"
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(npm uninstall *)",
+      "Bash(npm ls *)",
+      "Bash(node *)",
+      "Bash(ls *)",
+      "Bash(ls)"
     ]
   }
 }
