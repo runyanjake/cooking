@@ -78,21 +78,22 @@ export default function RecipeCard({ children }: { children: ReactNode }) {
             role="tabpanel"
             id={`tab-panel-${activeSection.title.toLowerCase()}`}
             aria-labelledby={`tab-${activeSection.title.toLowerCase()}`}
-            className={`prose prose-lg dark:prose-invert max-w-none
-              prose-headings:text-gray-900 dark:prose-headings:text-white
-              prose-p:text-gray-700 dark:prose-p:text-gray-300
-              prose-strong:text-gray-900 dark:prose-strong:text-white
-              prose-ol:list-decimal prose-ol:pl-6 prose-ol:space-y-2
-              prose-ul:list-disc prose-ul:pl-6 prose-ul:space-y-2
-              prose-li:text-gray-700 dark:prose-li:text-gray-300
-              prose-li:marker:text-gray-500 dark:prose-li:marker:text-gray-400
-              prose-code:text-gray-900 dark:prose-code:text-gray-100
-              prose-pre:bg-gray-100 dark:prose-pre:bg-gray-900
-              prose-table:border-collapse
-              prose-th:border prose-th:border-gray-300 dark:prose-th:border-gray-600
-              prose-td:border prose-td:border-gray-300 dark:prose-td:border-gray-600
+            className={`max-w-none text-base leading-relaxed
+              [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-gray-900 dark:[&_h3]:text-white [&_h3]:mt-5 [&_h3]:mb-2
+              [&_p]:text-gray-700 dark:[&_p]:text-gray-300 [&_p]:my-2
+              [&_strong]:text-gray-900 dark:[&_strong]:text-white
+              [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-2 [&_ol]:my-4
+              [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_ul]:my-4
+              [&_li]:text-gray-700 dark:[&_li]:text-gray-300
+              [&_li]:marker:text-gray-500 dark:[&_li]:marker:text-gray-400
+              [&_a]:text-blue-600 dark:[&_a]:text-blue-400 [&_a]:underline
+              [&_code]:text-gray-900 dark:[&_code]:text-gray-100 [&_code]:bg-gray-100 dark:[&_code]:bg-gray-800 [&_code]:rounded [&_code]:px-1.5 [&_code]:py-0.5
+              [&_pre]:bg-gray-100 dark:[&_pre]:bg-gray-900
+              [&_table]:border-collapse
+              [&_th]:border [&_th]:border-gray-300 dark:[&_th]:border-gray-600
+              [&_td]:border [&_td]:border-gray-300 dark:[&_td]:border-gray-600
               ${activeSection.title === 'Photos'
-                ? 'prose-img:w-full prose-img:max-w-2xl prose-img:mx-auto [&_em]:block [&_em]:text-center [&_em]:text-sm [&_em]:text-gray-600 dark:[&_em]:text-gray-400 [&_em]:italic [&_em]:my-2'
+                ? '[&_img]:w-full [&_img]:max-w-2xl [&_img]:mx-auto [&_em]:block [&_em]:text-center [&_em]:text-sm [&_em]:text-gray-600 dark:[&_em]:text-gray-400 [&_em]:italic [&_em]:my-2'
                 : ''
               }
             `}

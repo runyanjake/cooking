@@ -7,7 +7,8 @@
       "Bash(npm ls *)",
       "Bash(node *)",
       "Bash(ls *)",
-      "Bash(ls)"
+      "Bash(ls)",
+      "Bash(node -e:*)"
     ]
   }
 }
