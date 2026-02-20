@@ -8,7 +8,8 @@
       "Bash(node *)",
       "Bash(ls *)",
       "Bash(ls)",
-      "Bash(node -e:*)"
+      "Bash(node -e:*)",
+      "WebFetch(domain:thewoksoflife.com)"
     ]
   }
 }
