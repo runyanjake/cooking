@@ -1,5 +1,6 @@
 services:
   cooking:
+    container_name: cooking
     build: .
     restart: unless-stopped
     networks:
