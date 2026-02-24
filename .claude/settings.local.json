@@ -9,7 +9,8 @@
       "Bash(ls *)",
       "Bash(ls)",
       "Bash(node -e:*)",
-      "WebFetch(domain:thewoksoflife.com)"
+      "WebFetch(domain:thewoksoflife.com)",
+      "WebFetch(domain:www.spendwithpennies.com)"
     ]
   }
 }
