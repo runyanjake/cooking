@@ -1,21 +1,20 @@
 # cooking
 
-A content-first personal recipe site. No popups, no life stories — just recipes.
+A content-first personal recipe site.
 
 **Live site:** [recipes.whitney.rip](https://recipes.whitney.rip)
 
 ## Stack
 
-- **Next.js 15** (App Router, SSG, standalone output)
-- **TypeScript** + **Tailwind CSS**
-- **MDX** with YAML frontmatter for recipe content
-- **next-mdx-remote/rsc** + **remark-gfm** for server-side MDX compilation
-- No database — recipes are MDX files on disk
+- **Next.js**, **TypeScript** + **Tailwind CSS**
+- **MDX** with YAML frontmatter metadata.
+- **next-mdx-remote/rsc** + **remark-gfm** for server-side compilation/rendering.
+- No database — recipes are checked into the repo.
 
 ## Project Structure
 
 ```
-app/                          # Next.js App Router pages
+app/
   page.tsx                    # Homepage
   recipes/
     page.tsx                  # Recipe listing with search/filter
@@ -27,7 +26,7 @@ lib/
   recipes.ts                  # Recipe loader (reads from public/recipes/)
 
 public/
-  assets/                     # Site-level SVGs
+  assets/                     # Site-level data.
   authors.json                # Author metadata
   recipes/                    # All recipe content (MDX + images colocated)
     [category]/
@@ -81,7 +80,7 @@ Intro prose (rendered above the card).
 *Caption text*
 
 ## Ingredients
-- 1 cup lentils
+- 1 cup short grain rice
 
 ## Instructions
 1. Rinse and cook.
@@ -98,23 +97,14 @@ Optional credits.
 
 ```bash
 npm install
-npm run dev       # http://localhost:3000
+npm run dev       # 3000
 npm run build
 npm run lint
 ```
 
-## Docker
-
-Build and run with Docker Compose (deploys behind a Traefik reverse proxy):
-
-```bash
-docker compose up -d --build
-```
-
-To rebuild from scratch:
+## Deployment
 
 ```bash
 docker compose down && docker system prune -f && docker compose up -d --build && docker logs -f recipes
 ```
 
-The container runs on port 3000. Traefik handles TLS termination via Let's Encrypt.
