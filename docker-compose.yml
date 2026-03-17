@@ -9,7 +9,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.cooking.rule=Host(`recipes.whitney.rip`)"
       - "traefik.http.routers.cooking.entrypoints=websecure"
-      - "traefik.http.routers.cooking.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.cooking.tls.certresolver=lets-encrypt"
       - "traefik.http.services.cooking.loadbalancer.server.port=3000"
 
 networks:
