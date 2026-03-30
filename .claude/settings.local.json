@@ -7,12 +7,7 @@
       "Bash(npm ls *)",
       "Bash(node *)",
       "Bash(ls *)",
-      "Bash(ls)",
-      "Bash(node -e:*)",
-      "WebFetch(domain:thewoksoflife.com)",
-      "WebFetch(domain:www.spendwithpennies.com)",
-      "WebFetch(domain:downshiftology.com)",
-      "WebFetch(domain:www.thekitchn.com)"
+      "WebFetch(*)"
     ]
   }
 }
