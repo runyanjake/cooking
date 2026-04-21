@@ -7,7 +7,9 @@
       "Bash(npm ls *)",
       "Bash(node *)",
       "Bash(ls *)",
-      "WebFetch(*)"
+      "WebFetch(*)",
+      "Bash(mkdir -p \"c:/Users/runya/Documents/repositories/cooking/public/recipes/mexican/fajita-vegetables/assets\")",
+      "Bash(cp \"c:/Users/runya/Documents/repositories/cooking/public/recipes/mexican/birria/assets/not-found.svg\" \"c:/Users/runya/Documents/repositories/cooking/public/recipes/mexican/fajita-vegetables/assets/not-found.svg\")"
     ]
   }
 }
