@@ -9,7 +9,14 @@
       "Bash(ls *)",
       "WebFetch(*)",
       "Bash(mkdir -p \"c:/Users/runya/Documents/repositories/cooking/public/recipes/mexican/fajita-vegetables/assets\")",
-      "Bash(cp \"c:/Users/runya/Documents/repositories/cooking/public/recipes/mexican/birria/assets/not-found.svg\" \"c:/Users/runya/Documents/repositories/cooking/public/recipes/mexican/fajita-vegetables/assets/not-found.svg\")"
+      "Bash(cp \"c:/Users/runya/Documents/repositories/cooking/public/recipes/mexican/birria/assets/not-found.svg\" \"c:/Users/runya/Documents/repositories/cooking/public/recipes/mexican/fajita-vegetables/assets/not-found.svg\")",
+      "Bash(ls -la && echo \"=== next.config ===\" && ls next.config* 2>/dev/null; echo \"=== applications infra ===\" && ls -la /c/Users/runya/Documents/repositories/applications/ | grep -iE 'docker|compose|nginx|next.config')",
+      "Read(//c/Users/runya/Documents/repositories/applications//**)",
+      "Bash(ls /c/Users/runya/Documents/repositories/cooking/app)",
+      "Read(//c/Users/runya/Documents/repositories/cooking/app/**)",
+      "Bash(find /c/Users/runya/Documents/repositories/cooking/app/api -type f)",
+      "Read(//c/Users/runya/Documents/repositories/cooking/app/api/**)",
+      "Bash(npx tsc *)"
     ]
   }
 }
