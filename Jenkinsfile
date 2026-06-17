@@ -2,9 +2,11 @@ pipeline {
   agent any
 
   environment {
-    COMPOSE_FILE = 'docker-compose.yml'
-    SERVICE      = 'recipes'
-    APP_PORT     = '3000'
+    COMPOSE_FILE    = 'docker-compose.yml'
+    SERVICE         = 'recipes'
+    CONTAINER       = 'recipes'
+    APP_PORT        = '3000'
+    DISCORD_WEBHOOK = credentials('discord-pws-builds-channel-webhook')
   }
 
   options {
@@ -38,7 +40,14 @@ pipeline {
 
     stage('Teardown') {
       steps {
-        sh 'docker compose -f "$COMPOSE_FILE" down --remove-orphans'
+        sh '''
+          set -eu
+          docker compose -f "$COMPOSE_FILE" down --remove-orphans
+          # compose down only removes containers tracked in its own project state; one
+          # left by an aborted run keeps the name reserved and makes `up` fail with a
+          # name conflict. Force-remove it by name to be sure.
+          docker rm -f "$CONTAINER" 2>/dev/null || true
+        '''
       }
     }
 
@@ -94,6 +103,37 @@ pipeline {
   }
 
   post {
+    always {
+      script {
+        def changeLog = "No recent changes detected."
+        def commits = currentBuild.changeSets.collectMany { it.items as List }
+        if (commits.size() > 0) {
+          changeLog = commits.collect { "> ${it.msg} (by *${it.author.displayName}*)" }.join('\n')
+        }
+
+        def statusEmoji = [
+          'SUCCESS': ':green_circle:',
+          'FAILURE': ':red_circle:'
+        ].getOrDefault(currentBuild.currentResult, ':yellow_circle:')
+
+        def discordDescription = """
+        **Status:** ${statusEmoji} ${currentBuild.currentResult}
+        **Branch:** `${env.BRANCH_NAME ?: 'Main/Manual'}`
+        **Duration:** :stopwatch: ${currentBuild.durationString.replace(' and no weeks', '').replace(' and counting', '')}
+
+        **Commits:**
+        ${changeLog}
+        """.stripIndent()
+
+        discordSend(
+          webhookURL: env.DISCORD_WEBHOOK,
+          title: "📦 Build Alert: ${env.JOB_NAME} [Build #${env.BUILD_NUMBER}]",
+          link: "${env.BUILD_URL}",
+          result: "${currentBuild.currentResult}",
+          description: discordDescription
+        )
+      }
+    }
     failure {
       sh 'docker compose -f "$COMPOSE_FILE" ps || true'
       sh 'docker compose -f "$COMPOSE_FILE" logs --tail=200 || true'
