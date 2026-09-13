@@ -1,0 +1,54 @@
+---
+title: "Ajitsuke Tamago (Ramen Egg)"
+slug: "ajitsuke-tamago-ramen-egg"
+date: "2026-02-10"
+lastUpdated: "2026-02-10"
+category: "japanese"
+tags: ["japanese", "sides"]
+cookTime: 10
+prepTime: 10
+servings: 12
+author: "jake"
+description: "Great on any kind of ramen!"
+featured: false
+display: true
+displayPhoto: ""
+---
+
+:::photos
+![Image Coming Soon](./assets/not-found.svg "Image Coming Soon")
+:::
+
+:::ingredients
+- Eggs
+- 2 tablespoons white vinegar
+- ¼ cup soy sauce
+- ¼ cup mirin cooking wine
+- 1 teaspoon brown sugar
+:::
+
+:::instructions
+1. Bring a pot of enough water to cover the eggs to a boil once added.
+2. Place saucepan over high heat and add **vinegar** to help with peeling. Bring to a boil.
+3. Prick a hole in the wide end of each egg (helps with shape and peeling).
+4. Gently lower the eggs into the water.
+5. Set a timer for 6-7 minutes, depending on the target consistency.
+6. Pick out the eggs and set into cold or **ice water**.
+7. Peel shells and lower into the **marinade**.
+8. Chill 1-4 (or more) hours.
+9. When serving, remove from marinade and cut in half.
+:::
+
+:::notes
+### Tight Fit
+- Make sure to find a bowl that can just barely fit all the eggs together, the sauce has to cover all of them.
+
+### To Age or Not to Age
+- Depending on how long you age these, they'll get really salty. A few days is a good middle ground, after that you can take the eggs out and store separately.
+:::
+
+:::references
+- Reference Recipe **[HERE](https://www.aspicyperspective.com/easy-ramen-egg-recipe-ajitsuke-tamago/)**
+:::
+
+::card

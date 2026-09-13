@@ -89,7 +89,7 @@ export default function RecipePageLayout({ recipe, children }: RecipePageLayoutP
           </div>
         </header>
 
-        {/* MDX content: intro prose + RecipeCard + outro prose */}
+        {/* Recipe content: intro prose + section tabs + outro prose */}
         <div className={`prose prose-lg dark:prose-invert max-w-none
           prose-p:text-gray-700 dark:prose-p:text-gray-300
           prose-headings:text-gray-900 dark:prose-headings:text-white

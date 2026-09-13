@@ -1,0 +1,69 @@
+---
+title: "Perfect Chocolate Chip Cookies"
+slug: "chocolate-chip-cookies"
+date: "2026-02-08"
+lastUpdated: "2026-02-08"
+category: "desserts"
+tags: ["cookies", "chocolate", "baking", "dessert", "american"]
+cookTime: 12
+prepTime: 15
+servings: 24
+author: "pws"
+description: "Classic chewy chocolate chip cookies with crispy edges and gooey centers, loaded with chocolate chips."
+featured: true
+display: false
+displayPhoto: "./assets/not-found.svg"
+---
+
+The ultimate chocolate chip cookie recipe that delivers crispy edges, chewy centers, and loads of melty chocolate chips in every bite. This recipe has been tested and perfected to create bakery-style cookies at home.
+
+:::photos
+![Image Coming Soon](./assets/not-found.svg "Image Coming Soon")
+
+![Chocolate Chip Cookies](./assets/chocolate-chip-cookies.png "Chocolate Chip Cookies")
+:::
+
+:::ingredients
+- 2 1/4 cups (280g) all-purpose flour
+- 1 teaspoon baking soda
+- 1 teaspoon fine sea salt
+- 1 cup (2 sticks / 226g) unsalted butter, softened to room temperature
+- 3/4 cup (150g) granulated sugar
+- 3/4 cup (165g) packed light brown sugar
+- 2 large eggs, room temperature
+- 2 teaspoons pure vanilla extract
+- 2 cups (340g) semi-sweet chocolate chips
+- 1 cup (170g) milk chocolate chips (optional, for extra chocolate)
+- Flaky sea salt for topping (optional)
+:::
+
+:::instructions
+1. Preheat oven to 375°F (190°C). Line two baking sheets with **parchment paper**.
+2. In a medium bowl, whisk together **flour**, **baking soda**, and **salt**. Set aside.
+3. In a large bowl or stand mixer, beat softened **butter** with both **sugars** on medium speed for 2-3 minutes until light and fluffy.
+4. Beat in **eggs** one at a time, then add **vanilla extract**. Mix until well combined, scraping down the sides of the bowl.
+5. With mixer on low speed, gradually add the **flour** mixture. Mix just until no flour streaks remain (don't overmix).
+6. Use a spatula or wooden spoon to fold in **chocolate chips** until evenly distributed.
+7. Cover bowl with **plastic wrap** and refrigerate for at least 30 minutes (or up to 72 hours for even better flavor). Cold dough = thicker cookies!
+8. Use a cookie scoop or tablespoon to form balls (about 2 tablespoons each). Place 2 inches apart on prepared baking sheets.
+9. If using, sprinkle a tiny pinch of **flaky sea salt** on top of each dough ball.
+10. Bake for 10-12 minutes until edges are golden brown but centers still look slightly underdone.
+11. Let cookies cool on the baking sheet for 5 minutes (they'll continue to set), then transfer to a wire rack.
+12. Serve warm or at room temperature. Best enjoyed with cold **milk**!
+:::
+
+:::notes
+### Tips for Success
+- **Room temperature ingredients**: Softened butter and eggs create the best texture
+- **Don't skip chilling**: Cold dough prevents spreading and creates thicker cookies
+
+### Variations
+- **Brown butter cookies**: Brown the butter for a nutty, caramel flavor
+- **Thick and bakery-style**: Increase flour to 2 1/2 cups and chill overnight
+:::
+
+:::references
+- Reference Recipe **[HERE](https://www.example.com)**
+:::
+
+::card

@@ -1,0 +1,39 @@
+---
+title: "Berry Smoothie"
+slug: "berry-smoothie"
+date: "2026-03-06"
+lastUpdated: "2026-03-06"
+category: "drinks"
+tags: ["drinks", "smoothie"]
+cookTime: 5
+prepTime: 5
+servings: 2
+author: "jake"
+description: "A refreshing smoothie with a forward berry flavor."
+featured: false
+display: true
+displayPhoto: "./assets/berry-smoothie.jpg"
+---
+
+:::photos
+![Berry Smoothie](./assets/berry-smoothie.jpg "Berry Smoothie")
+:::
+
+:::ingredients
+- 1 cup honey vanilla greek yogurt
+- 1 banana
+- 1 cup berry mix
+- 1 cup blueberries
+:::
+
+:::instructions
+1. Put all ingredients into a blender and blend until smooth.
+2. Enjoy!
+:::
+
+:::notes
+### Yogurt Choice
+- Greek yogurt is healthier and becomes less watery over time.
+:::
+
+::card

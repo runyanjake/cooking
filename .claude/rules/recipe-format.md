@@ -1,4 +1,6 @@
-# Recipe MDX Format
+# Recipe Markdown Format
+
+Recipes are plain `.md` files (not MDX) at `recipes/[category]/[slug]/[slug].md`, parsed with remark + remark-gfm + remark-directive in `lib/recipe-content.ts`.
 
 ## Frontmatter Fields
 
@@ -23,26 +25,44 @@ displayPhoto: "./assets/hero.jpg"
 
 ## Content Structure
 
-Content after frontmatter is compiled as MDX using `next-mdx-remote/rsc`. The `<RecipeCard>` JSX component wraps recipe sections and renders them as tabs in the UI.
+The body uses [generic markdown directives](https://talk.commonmark.org/t/generic-directives-plugins-syntax/444):
 
-- Markdown **before** `<RecipeCard>` renders as intro prose above the recipe card
-- Markdown **after** `</RecipeCard>` renders as outro prose below the recipe card
-- **Important**: a blank line after `<RecipeCard>` is required for MDX to parse the content inside as markdown
-- Blank lines after `## ` headings and before `</RecipeCard>` are optional — the compact form (no extra blank lines) is preferred
+- **Container** `:::name` … `:::` wraps a section of ordinary markdown
+- **Leaf** `::name` on its own line inserts a generated object
 
-### `<RecipeCard>` Sections
+### Sections (each becomes a tab, in this order)
 
-`## ` (H2) headings inside `<RecipeCard>` define tabs:
+- `:::photos` — images; the image title becomes the caption: `![Alt text](./assets/hero.jpg "Caption")`
+- `:::ingredients` — bullet lists, optionally grouped with `###` subheadings
+- `:::instructions` — numbered steps, optionally grouped with `###` subheadings
+- `:::notes` — tips, variations, storage (optional)
+- `:::references` — credits and sources (optional)
 
-- `## Photos` — images with italic captions (`*caption text*`)
-- `## Ingredients` — bullet lists, optionally grouped with h3 subheadings
-- `## Instructions` — numbered steps, optionally grouped with h3 subheadings
-- `## Notes` — tips, variations, storage (optional)
-- `## References` — credits and sources (optional)
+Markdown before the first section renders as intro prose above the tabs; markdown after the last section renders as outro prose below. Prose between sections is an error.
+
+### Recipe card (opt in)
+
+- `::card` adds a Recipe Card tab with a printable 5×7 in PNG generated from `:::ingredients` and `:::instructions`
+- To give the card a shorter version, use the container form. The outer fence needs **four** colons; any section left out falls back to the full one:
+
+```md
+::::card
+:::instructions
+1. Condensed step one.
+2. Condensed step two.
+:::
+::::
+```
+
+The card uses one side when the text fits at 8pt or larger; otherwise it splits into a front (ingredients) and back (instructions). The build fails if even front/back doesn't fit — add a `::::card` with shorter content.
+
+### Validation
+
+Unknown directives (e.g. `:::ingrediants`), duplicate sections, and a leaf form of a section (`::notes`) fail the build with the file and line. `:word` inside prose (e.g. "Tip:Use") is left as literal text.
 
 ### Example
 
-```mdx
+```md
 ---
 title: "Lentils"
 description: "A neutral lentil dish."
@@ -51,35 +71,32 @@ description: "A neutral lentil dish."
 
 This recipe uses brown lentils (whole Masoor Dal)...
 
-<RecipeCard>
+:::photos
+![Lentils](./assets/hero.jpg "Finished lentils")
+:::
 
-## Photos
-![Hero](./assets/hero.jpg)
-*Finished lentils*
-
-## Ingredients
+:::ingredients
 - 1 cup brown lentils
-...
+:::
 
-## Instructions
+:::instructions
 1. Rinse lentils...
-...
+:::
 
-## Notes
+:::notes
 ### Tips
 - Try with different lentils!
+:::
 
-## References
+:::references
 - Reference Recipe **[HERE](https://example.com)**
-</RecipeCard>
+:::
+
+::card
 ```
 
 ## Image Paths
 
 Images use relative paths: `./assets/image.jpg`
 
-These are rewritten at render time to `/recipes/[category]/[slug]/assets/image.jpg`.
-
-## Italic Captions in Photos Section
-
-Italic text (`*caption*`) in the `## Photos` section renders as a styled block caption beneath images. In all other sections, italic renders normally.
+These are rewritten at render time to `/recipes/[category]/[slug]/assets/image.jpg` (from frontmatter category and slug, not the folder name).

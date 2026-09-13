@@ -1,0 +1,65 @@
+---
+title: "Garlic Herb Butter Roast Turkey"
+slug: "garlic-herb-butter-roast-turkey"
+date: "2026-02-10"
+lastUpdated: "2026-02-10"
+category: "meat"
+tags: ["meat", "thanksgiving"]
+cookTime: 180
+prepTime: 30
+servings: 10
+author: "jake"
+description: "Happy Thanksgiving!"
+featured: false
+display: true
+displayPhoto: ""
+---
+
+:::photos
+![Image Coming Soon](./assets/not-found.svg "Image Coming Soon")
+:::
+
+:::ingredients
+### Herb Butter
+- 4 ounces unsalted butter
+- 1 teaspoon chopped fresh thyme leaves
+- 4 teaspoons minced garlic
+- Kosher salt and freshly ground pepper
+### Turkey
+- 12 pound whole turkey, skin on
+- 3 heads garlic cut in half horizontally divided
+- 3 slices lemon
+- 6 sprigs thyme
+- 6 sprigs rosemary
+- 1/2 cup olive oil
+:::
+
+:::instructions
+1. Preheat oven to 425°F. Lower oven shelf to the lowest part of your oven.
+2. Combine the **Herb Butter ingredients** in a bowl and mix well. Reserve half of the herb butter in the refrigerator for later.
+3. Line a large roasting pan with foil or parchment paper. Arrange the 4 halves of **garlic** cut-side down on the bottom of the pan with 4 sprigs each of **thyme** and **rosemary**, half of the **olive oil** and 1 slice of **lemon**.
+4. Thoroughly pat turkey dry with paper towels. Stuff with the remaining heads **garlic halves**, **lemon slice**, a squeeze of lemon from remaining slice, **herbs** and a drizzle of **olive oil**.
+5. Melt the **butter** and rub all over the turkey, including under the skin. Season generously all over with **salt** and **pepper**. Place turkey on top of the garlic and herbs in the pan BREAST-SIDE DOWN. Drizzle with the remaining **oil**.
+6. Roast uncovered for 30 minutes for a small turkey under 13 pounds (6 1/2 kg), or 45 minutes for a larger turkey over 14 pounds (7 kg plus).
+7. Turn turkey over (breast-side up) with a pair of tongs, a clean towel or oven mitts and baste with pan juices.
+8. Spread half of the reserved **herb butter** over the top of your turkey with a spoon or brush. Pour any remaining juices over your turkey.
+9. Reduce heat to 325°F. Roast, uncovered, for 60 minutes.
+10. Slather turkey generously with remaining **butter** and roast for 30 minutes. Baste again, then continue roasting for a further 30 minutes or so, depending on the size of your bird. Tent loosely with foil if starting to brown too fast. For an extra large turkey, you may need an additional half hour to an hour.
+11. For extra crispy skin, broil or grill in the last 5-10 minutes, keeping your eye on it so it doesn't burn, until the skin is crispy and golden browned all over.
+12. Tent turkey with foil and allow it to rest for 20-30 minutes before carving and serving.
+13. Remove 2 1/2 cups of the liquid from the **pan juices** (top up with stock if you need too), strain and reserve for your gravy (see below).
+:::
+
+:::notes
+### Scaling!
+- The recipe suggests using a 12 lb turkey, I have tried it with a 16 lb turkey with slightly scaled up measurements.
+
+### Keep it Together
+- It's hard to get perfect cuts on the garlic. I found success by lightly sawing with a sharpened knife. When squeezing the garlic out try not to burn yourself.
+:::
+
+:::references
+- Reference Recipe **[HERE](https://cafedelites.com/roast-turkey/)**
+:::
+
+::card

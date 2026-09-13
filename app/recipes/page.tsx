@@ -15,14 +15,9 @@ export default function RecipesPage() {
 
   return (
     <div className="space-y-8">
-      <div className="space-y-4">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-          Recipes
-        </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400">
-          Explore our collection of {recipes.length} delicious recipes!
-        </p>
-      </div>
+      <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+        Recipes
+      </h1>
 
       <Suspense fallback={
         <div className="text-center py-12 text-gray-500 dark:text-gray-400">

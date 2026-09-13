@@ -1,0 +1,56 @@
+---
+title: "Golden Curry Chicken"
+slug: "golden-curry-chicken"
+date: "2026-02-10"
+lastUpdated: "2026-02-10"
+category: "japanese"
+tags: ["japanese", "stew"]
+cookTime: 40
+prepTime: 10
+servings: 10
+author: "jake"
+description: "A variant of the Golden Curry Beef recipe, this version uses chicken instead of beef, and coconut cream instead of beef stock for a Thai curry flavor."
+featured: false
+display: true
+displayPhoto: ""
+---
+
+:::photos
+![Image Coming Soon](./assets/not-found.svg "Image Coming Soon")
+:::
+
+:::ingredients
+- 2 lbs chicken thigh fillets, cut into bite-sized pieces
+- 4 cups chicken stock, 1 additional as needed, or water
+- 1 large onion, chopped
+- 1 large red bell pepper, chopped
+- 3 carrots, chopped
+- 3 medium golden potatoes, chopped
+- 13 oz (1 can) coconut cream
+- 2 tablespoons vegetable oil
+- 1 carton S&B Golden Curry Mix
+:::
+
+:::instructions
+1. In a large saucepan, heat **vegetable oil** over medium heat. Add **chicken** and cook until browned.
+2. Add **onion**, **carrots**, **bell pepper**, and **potatoes**. Stir-fry for about 5 minutes until fragrant.
+3. Add **chicken stock** and the **golden curry mix**. Bring to a boil.
+4. Reduce heat and simmer for about 30 minutes, or until the chicken is tender/the sauce has thickened.
+5. Stir in **coconut cream** and simmer for an additional 5 minutes.
+6. Serve hot over rice.
+The coconut cream settles to the bottom of the can, make sure to re-mix it before using.
+:::
+
+:::notes
+### A different take on Golden Curry
+- The sweetness of the coconut cream makes this a very different dish than the normal way we make Curry Stew.
+
+### A Note on the Coconut Cream
+- The coconut cream settles to the bottom of the can, make sure to re-mix it before using.
+:::
+
+:::references
+- Reference Recipe **[HERE](https://www.recipetineats.com/golden-coconut-chicken-curry/)**
+:::
+
+::card

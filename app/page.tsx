@@ -82,7 +82,7 @@ export default function Home() {
           <div className="w-full md:w-2/5 space-y-4 text-center md:text-left">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Welcome to my Self-Hosted Cookbook!</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400">
-              Rather than make a physical cookbook, I have built this website to collect my recipes. This content-first website framework renders each page from a MDX markdown file, offering a friendly approach to frontend design for us backend engineers.
+              Rather than make a physical cookbook, I have built this website to collect my recipes. This content-first website framework renders each page from a markdown file, offering a friendly approach to frontend design for us backend engineers.
             </p>
           </div>
         </div>

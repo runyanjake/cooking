@@ -35,7 +35,7 @@ export default function AboutPage() {
             Each recipe is organized in its own folder with:
           </p>
           <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-400 ml-4">
-            <li>MDX file with metadata frontmatter, recipe content, and instructions</li>
+            <li>Markdown file with metadata frontmatter, recipe content, and instructions</li>
             <li>Assets folder for images and other media</li>
           </ul>
         </section>

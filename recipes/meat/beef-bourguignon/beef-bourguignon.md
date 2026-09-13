@@ -1,0 +1,65 @@
+---
+title: "Beef Bourguignon"
+slug: "beef-bourguignon"
+date: "2026-02-10"
+lastUpdated: "2026-02-10"
+category: "meat"
+tags: ["meat", "french"]
+cookTime: 210
+prepTime: 20
+servings: 8
+author: "jake"
+description: "A classic French dish made with beef braised in red wine, often served with mushrooms and pearl onions."
+featured: false
+display: true
+displayPhoto: ""
+---
+
+:::photos
+![Image Coming Soon](./assets/not-found.svg "Image Coming Soon")
+:::
+
+:::ingredients
+- 2 pounds beef chuck, cut into 1-inch cubes
+- 1 bottle (750 ml) red wine (preferably Burgundy)
+- 2 cups beef stock
+- 1/4 cup brandy
+- 1/4 cup all-purpose flour
+- 4 ounces bacon, diced
+- 2 tablespoons olive oil
+- 1 large onion, chopped
+- 2 carrots, sliced
+- 3 cloves garlic, minced
+- 1 bouquet garni (thyme, bay leaf, parsley)
+- 8 ounces pearl onions, peeled
+- 8 ounces mushrooms, quartered
+- Salt and pepper to taste
+- Fresh parsley for garnish
+:::
+
+:::instructions
+1. Preheat the oven to 325°F (160°C).
+2. In a large Dutch oven, cook the **bacon** over medium heat until crispy. Optionally add a small bit of water while cooking to ensure a better crisp. Remove and set aside, leaving the fat in the pot.
+3. Season the **beef** with **salt** and **pepper**, then dust with **flour**. In the same pot, brown the **beef** in batches until browned on all sides. Remove and set aside.
+4. Add the **onion** and **carrots** to the pot, cooking until softened. Stir in the **garlic** and cook for an additional minute.
+5. Return the **beef** and **bacon** to the pot. Add the **red wine**, **beef stock**, and **brandy**. Add the **bouquet garni** and bring to a simmer.
+6. Cover the pot and transfer to the oven. Cook for 2 to 3 hours, or until the **beef** is tender.
+7. In the last 30 minutes of cooking, add the **pearl onions** and **mushrooms**.
+8. Once cooked, remove from the oven, discard the **bouquet garni**, and adjust seasoning with **salt** and **pepper**.
+9. Serve hot, garnished with **fresh parsley**.
+Serve with crusty bread or over mashed potatoes for a hearty meal.
+:::
+
+:::notes
+### Wine Selection
+- Use a good quality red wine for the best flavor. Burgundy is traditional, but any full-bodied red will work.
+
+### Serving Suggestions
+- Serve with crusty bread or over mashed potatoes for a hearty meal.
+:::
+
+:::references
+- Reference Recipe **[HERE](https://cafedelites.com/beef-bourguignon/)**
+:::
+
+::card

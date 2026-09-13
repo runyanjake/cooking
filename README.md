@@ -7,8 +7,8 @@ A content-first personal recipe site.
 ## Stack
 
 - **Next.js**, **TypeScript** + **Tailwind CSS**
-- **MDX** with YAML frontmatter metadata.
-- **next-mdx-remote/rsc** + **remark-gfm** for server-side compilation/rendering.
+- **Markdown** with YAML frontmatter metadata, using directives (`:::ingredients`) for recipe sections.
+- **remark** (+ gfm, directive) for server-side parsing; **satori** + **sharp** for printable recipe cards.
 - No database — recipes are checked into the repo.
 
 ## Project Structure
@@ -23,23 +23,24 @@ app/
 
 components/                   # UI components
 lib/
-  recipes.ts                  # Recipe loader (reads from public/recipes/)
+  recipes.ts                  # Recipe loader (reads from recipes/)
+
+recipes/                      # All recipe content (markdown + images colocated)
+  [category]/
+    [slug]/
+      [slug].md
+      assets/
+        hero.jpg
 
 public/
   assets/                     # Site-level data.
   authors.json                # Author metadata
-  recipes/                    # All recipe content (MDX + images colocated)
-    [category]/
-      [slug]/
-        [slug].mdx
-        assets/
-          hero.jpg
 ```
 
 ## Adding a Recipe
 
-1. Create a folder: `public/recipes/[category]/[recipe-slug]/`
-2. Add `[recipe-slug].mdx` with frontmatter and content
+1. Create a folder: `recipes/[category]/[recipe-slug]/`
+2. Add `[recipe-slug].md` with frontmatter and content
 3. Create an `assets/` subfolder and add images
 4. Reference images with relative paths: `./assets/image.jpg`
 
@@ -68,30 +69,35 @@ displayPhoto: "./assets/hero.jpg"
 
 ### Content Structure
 
-Wrap recipe content in `<RecipeCard>` — `## ` headings inside it become tabs:
+Each `:::section` block becomes a tab. Add `::card` for a printable 5×7 recipe card tab:
 
-```mdx
-Intro prose (rendered above the card).
+```md
+Intro prose (rendered above the tabs).
 
-<RecipeCard>
+:::photos
+![Finished dish](./assets/hero.jpg "Caption text")
+:::
 
-## Photos
-![Finished dish](./assets/hero.jpg)
-*Caption text*
-
-## Ingredients
+:::ingredients
 - 1 cup short grain rice
+:::
 
-## Instructions
+:::instructions
 1. Rinse and cook.
+:::
 
-## Notes
+:::notes
 Optional tips.
+:::
 
-## References
+:::references
 Optional credits.
-</RecipeCard>
+:::
+
+::card
 ```
+
+If a recipe is too long for the card, it's split front/back automatically. To write a shorter card instead, use `::::card` (four colons) containing its own `:::ingredients` and/or `:::instructions`. See `.claude/rules/recipe-format.md` for the full format.
 
 ## Development
 

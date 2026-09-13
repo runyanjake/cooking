@@ -1,16 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { RecipeMetadata } from '@/lib/recipes';
+import { resolveRecipeAssetUrl } from '@/lib/recipe-urls';
 
 interface RecipeCardProps {
-  recipe: RecipeMetadata & { folderPath: string };
+  recipe: RecipeMetadata;
 }
 
 export default function RecipeGridCard({ recipe }: RecipeCardProps) {
-  // Convert relative path to public URL
-  const imageSrc = recipe.displayPhoto && recipe.displayPhoto.startsWith('./')
-    ? `/recipes/${recipe.folderPath}/${recipe.displayPhoto.replace('./', '')}`.replace(/\\/g, '/')
-    : recipe.displayPhoto || null;
+  const imageSrc = recipe.displayPhoto ? resolveRecipeAssetUrl(recipe, recipe.displayPhoto) : null;
 
   return (
     <Link

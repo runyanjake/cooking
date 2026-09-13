@@ -1,0 +1,78 @@
+---
+title: "Lentils"
+slug: "lentils"
+date: "2026-02-10"
+lastUpdated: "2026-02-10"
+category: "indian"
+tags: ["indian", "curry"]
+cookTime: 60
+prepTime: 30
+servings: 10
+author: "jake"
+description: "A neutral lentil dish that can complement other curries or be a meal on its own."
+featured: false
+display: true
+displayPhoto: ""
+---
+
+This recipe uses brown lentils (whole Masoor Dal), as well as their hulled (red Dal) and split (split red Dal) forms. 
+
+The whole dal retain their consistency, and the hulled and split dal thicken the gravy. Both are recommended to be used. Some substitutes for the whole dal can be done, I have used whole mung beans (Green Moong Dal) as a replacement, and any split dal can be used instead of the split red dal.
+
+:::photos
+![Image Coming Soon](./assets/not-found.svg "Image Coming Soon")
+:::
+
+:::ingredients
+### Brown & Red Lentils
+- 1 cup whole masoor dal (brown lentils)
+- 1 cup split masoor dal (hulled and split brown lentils aka red lentils)
+
+### Gravy
+- 1 cup onion (finely chopped)
+- 1 1/2 cups medium tomatoes (finely chopped)
+- 1 tbsp cumin seeds
+- 1 tbsp fennel seeds (optional)
+- 3 dried red chilies or 1/2 tsp chili flakes
+- 1 tablespoon minced ginger
+- 1 tablespoon minced garlic
+- 1/4 cup coriander leaves/cilantro with tender stalks, leave some to garnish
+- 1/4 tsp ground turmeric
+- 1 tsp sea salt, adjust to taste
+- 1 tsp kashmiri chili powder, adjust to taste
+- 1 tsp coriander powder (optional)
+- 1/2 tsp cumin powder (optional)
+- 1 tsp garam masala, adjust to taste
+- 1 tbsp amchur powder
+- 1 tbsp dried fenugreek leaves (kasuri methi)
+:::
+
+:::instructions
+### Lentil Preparation
+1. Add each type of **lentil** individually to a large bowl and rinse well at least 3x.
+2. Add to a pot with 4 cups **water** if using both types of lentils, 3 cups if not using split lentils.
+3. Bring to a rolling boil, skimming froth if it appears.
+4. Reduce to medium and cook until tender, for 20-25 mins. Red lentils should break down completely and brown lentils to retain their shape.
+### Gravy Instructions
+1. On a medium flame, heat 2/3 tbsp **ghee/oil** in large pot.
+2. When medium hot, add **cumin** and **fennel seeds** followed by **dried red chilis**. If using chili flakes save for a later step.
+3. Once sizzling and the chilis turn crisp but not burnt, add **onions**. Saute until light golden for 5-6 mins.
+4. Stir in **ginger garlic** and **coriander leaves/stems**. Saute until aromatic for 1-2 mins.
+5. Stir in **turmeric**, **salt**, **red chili powder**, **coriander powder**, **cumin powder**, and **garam masala**.
+6. Add **tomatoes** and deglaze by pouring 1/4 cup water.
+7. Cook until tomatoes break down completely.
+8. Add **cooked lentils** along with the liquid in the pot and mix well. Pour **hot water** as needed (about 1/2 cup or as needed) and bring to boil.
+9. Simmer for 5 minutes until thick and traces of fats visible on top. Optionally mash lentils a bit for a creamier consistency.
+10. Stir in **amchur powder** and **fenugreek leaves**.
+:::
+
+:::notes
+### Mix & Match
+- Try with all types of lentils!
+:::
+
+:::references
+- Reference Recipe **[HERE](https://www.indianhealthyrecipes.com/brown-lentils/)**
+:::
+
+::card

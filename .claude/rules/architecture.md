@@ -3,14 +3,18 @@
 ## State and Data Flow
 
 - **RecipeLayout** owns sidebar open/close state; passes `handleFilterChange` (memoised with `useCallback`) down to RecipesSidebar
-- **RecipesSidebar** owns filter state (search, category, selectedTags) and reports changes via `useEffect` → `onFilterChange`
-- **RecipesClient** owns filtered recipe list (memoised with `useMemo`) and passes `setFilters` as `onFilterChange`
-- **RecipeCard** (MDX component) receives compiled children, splits by h2 into tab sections; custom `img` component in page.tsx rewrites `./` paths to `/recipes/[folderPath]/`
+- **RecipesSidebar** owns local UI state (debounced search input, tag filter text, show-more toggles) and reports filter changes via `onFilterChange`
+- **RecipesClient** owns filter state (synced to the URL), the filtered recipe list, and facet counts (all memoised with `useMemo`). Each facet's counts apply every filter except its own; options with zero results are hidden
+- **ActiveFilters** renders removable chips for the active filters above the results grid
+- **Recipe page** gets the parsed `RecipeContent` from `getRecipeContent` (cached), renders each section with **RecipeMarkdown** (server), and passes them as tabs to **RecipeTabs** (client). All panels are in the HTML; inactive ones are `hidden`
+- **Recipe card**: `getRecipeCardImages` computes the layout once per recipe; the page and the `card/[image]` route both use it, so the tab always matches the generated files. Layout measures real block heights with satori's `onNodeDetected`, so fitting is exact, not estimated
 
 ## Known Constraints
 
-- `folderPath` in recipe metadata uses backslashes on Windows (from `path.join`) — always `.replace(/\\/g, '/')` before using in URLs
-- Images in recipe MDX are wrapped in `<p>` by MDX compilation — use `<img>` not `<figure>` to avoid invalid HTML nesting (`<p><figure>` is invalid)
+- Recipe image URLs are `/recipes/[category]/[slug]/assets/...` (from frontmatter, not the folder on disk). Use `resolveRecipeAssetUrl` from `lib/recipe-urls.ts` — never build them from `folderPath`, which can differ from category/slug and uses backslashes on Windows
+- Recipe detail and asset routes set `dynamicParams = false`; everything is prerendered and the runtime image doesn't ship `recipes/`
+- Paragraphs containing only images are converted to `<figure>` elements during parsing (caption from the image title), so there's no `<p><figure>` nesting
+- Card fonts are read from `node_modules/@fontsource/*` at build time; satori needs woff/ttf (not woff2) and doesn't support variable fonts
 - `lib/recipes.ts` uses Node.js `fs` — server-side only; never import in client components
-- Build warning about `<img>` vs `<Image />` in recipe pages is intentional — markdown images can't use Next.js Image component
+- Build warnings about `<img>` vs `<Image />` in RecipeMarkdown and RecipeCardPanel are intentional
 - Never add redundant ARIA roles on semantic elements (`<main>`, `<aside>`, `<footer>` already carry implicit roles)

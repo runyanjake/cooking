@@ -1,11 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { parseRecipeContent, type RecipeContent } from './recipe-content';
 
-const recipesDirectory = path.join(process.cwd(), 'public/recipes');
+const recipesDirectory = path.join(process.cwd(), 'recipes');
 
 // Cache to avoid repeated file system walks
 let recipesCache: Recipe[] | null = null;
+const contentCache = new Map<string, RecipeContent>();
 
 export interface RecipeMetadata {
   title: string;
@@ -30,7 +32,7 @@ export interface Recipe extends RecipeMetadata {
   content: string;
 }
 
-function findMDXFiles(dir: string, fileList: string[] = []): string[] {
+function findRecipeFiles(dir: string, fileList: string[] = []): string[] {
   const files = fs.readdirSync(dir);
 
   files.forEach((file) => {
@@ -38,8 +40,8 @@ function findMDXFiles(dir: string, fileList: string[] = []): string[] {
     const stat = fs.statSync(filePath);
 
     if (stat.isDirectory()) {
-      findMDXFiles(filePath, fileList);
-    } else if (file.endsWith('.mdx')) {
+      findRecipeFiles(filePath, fileList);
+    } else if (file.endsWith('.md') && file.toLowerCase() !== 'readme.md') {
       fileList.push(filePath);
     }
   });
@@ -52,9 +54,7 @@ function getOrPopulateRecipes(): Recipe[] {
     return recipesCache;
   }
 
-  const mdxFiles = findMDXFiles(recipesDirectory);
-
-  const recipes = mdxFiles
+  const recipes = findRecipeFiles(recipesDirectory)
     .map((filePath) => {
       const fileContents = fs.readFileSync(filePath, 'utf8');
       const { data, content } = matter(fileContents);
@@ -77,6 +77,16 @@ function getOrPopulateRecipes(): Recipe[] {
   return sortedRecipes;
 }
 
+// Parsed section structure of a recipe's markdown body; throws RecipeFormatError on bad syntax
+export function getRecipeContent(recipe: Recipe): RecipeContent {
+  let content = contentCache.get(recipe.filePath);
+  if (!content) {
+    content = parseRecipeContent(recipe.content, path.relative(process.cwd(), recipe.filePath));
+    contentCache.set(recipe.filePath, content);
+  }
+  return content;
+}
+
 export function getAllRecipes(): Recipe[] {
   return getOrPopulateRecipes();
 }
@@ -87,10 +97,15 @@ export function getAllCategories(): string[] {
   return Array.from(categories).sort();
 }
 
+// Tags ordered by how many recipes use them, then alphabetically
 export function getAllTags(): string[] {
   const allRecipes = getOrPopulateRecipes();
-  const tags = new Set(allRecipes.flatMap((recipe) => recipe.tags));
-  return Array.from(tags).sort();
+  const counts = new Map<string, number>();
+  for (const tag of allRecipes.flatMap((recipe) => recipe.tags)) {
+    counts.set(tag, (counts.get(tag) ?? 0) + 1);
+  }
+  // Most-used first, so collapsed tag lists show the most useful tags
+  return Array.from(counts.keys()).sort((a, b) => counts.get(b)! - counts.get(a)! || a.localeCompare(b));
 }
 
 export function getRecipeByCategoryAndSlug(category: string, slug: string): Recipe | undefined {
@@ -104,4 +119,57 @@ export function getAllRecipePaths(): Array<{ category: string; slug: string }> {
     category: recipe.category,
     slug: recipe.slug,
   }));
+}
+
+const ASSET_CONTENT_TYPES: Record<string, string> = {
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.png': 'image/png',
+  '.webp': 'image/webp',
+  '.avif': 'image/avif',
+  '.gif': 'image/gif',
+  '.svg': 'image/svg+xml',
+};
+
+function findAssetFiles(dir: string, fileList: string[] = []): string[] {
+  if (!fs.existsSync(dir)) return fileList;
+  for (const file of fs.readdirSync(dir)) {
+    const filePath = path.join(dir, file);
+    if (fs.statSync(filePath).isDirectory()) {
+      findAssetFiles(filePath, fileList);
+    } else if (path.extname(file).toLowerCase() in ASSET_CONTENT_TYPES) {
+      fileList.push(filePath);
+    }
+  }
+  return fileList;
+}
+
+// Every servable file under each recipe's assets/ folder, as route params
+export function getAllRecipeAssetPaths(): Array<{ category: string; slug: string; file: string[] }> {
+  return getOrPopulateRecipes().flatMap((recipe) => {
+    const assetsDir = path.join(recipesDirectory, recipe.folderPath, 'assets');
+    return findAssetFiles(assetsDir).map((filePath) => ({
+      category: recipe.category,
+      slug: recipe.slug,
+      file: path.relative(assetsDir, filePath).split(path.sep),
+    }));
+  });
+}
+
+export function readRecipeAsset(
+  category: string,
+  slug: string,
+  file: string[]
+): { data: Buffer; contentType: string } | undefined {
+  const recipe = getRecipeByCategoryAndSlug(category, slug);
+  if (!recipe) return undefined;
+
+  const assetsDir = path.join(recipesDirectory, recipe.folderPath, 'assets');
+  const filePath = path.resolve(assetsDir, ...file);
+  const contentType = ASSET_CONTENT_TYPES[path.extname(filePath).toLowerCase()];
+  if (!filePath.startsWith(assetsDir + path.sep) || !contentType || !fs.existsSync(filePath)) {
+    return undefined;
+  }
+
+  return { data: fs.readFileSync(filePath), contentType };
 }

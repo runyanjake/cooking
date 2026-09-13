@@ -1,0 +1,60 @@
+---
+title: "Elote (Mexican Street Corn)"
+slug: "elote"
+date: "2026-02-10"
+lastUpdated: "2026-02-13"
+category: "mexican"
+tags: ["mexican"]
+cookTime: 60
+prepTime: 5
+servings: 8
+author: "jake"
+description: "Classic Mexican street corn featuring grilled corn on the cob or in a cup."
+featured: false
+display: true
+displayPhoto: "./assets/elote.jpg"
+---
+
+:::photos
+![Elote](./assets/elote.jpg "Elote")
+:::
+
+:::ingredients
+- 6-8 medium ears of corn, husks removed
+- 1/2 cup mayonnaise
+- 1/2 cup Mexican crema or sour cream
+- 1/2 cup finely crumbled cotija cheese, plus more for serving
+- 1/4 cup minced fresh cilantro
+- 1 medium clove garlic, minced
+- 1/2 teaspoon chili powder (ancho or guajillo recommended), plus more for serving
+- 1 lime, cut into wedges
+:::
+
+:::instructions
+1. Preheat a grill to medium-high heat.
+2. While the grill heats, prepare the sauce. In a medium bowl, combine the **mayonnaise**, **crema** (or sour cream), 1/2 cup of **cotija cheese**, minced **cilantro**, **garlic**, and 1/2 teaspoon of **chili powder**. Mix well until combined.
+3. Grill the **corn**, turning occasionally, until it's cooked through and charred in spots, which should take about 10 minutes.
+4. Once the corn is grilled, immediately brush a generous layer of the creamy sauce mixture onto all sides of each cob.
+5. Sprinkle the coated corn with additional **cotija cheese** and a dusting of **chili powder**.
+6. Serve immediately with **lime** wedges for squeezing over the corn just before eating.
+You can achieve a similar result by broiling the corn in your oven or carefully charring it over a gas stove flame. Be sure to turn it frequently for even cooking and char.
+:::
+
+:::notes
+### Ingredient Selection
+- Cotija is a salty, crumbly Mexican cheese. If you can't find it, a dry feta or even grated Parmesan can be used as a substitute, though the flavor will be slightly different.
+- Lime is great on top but don't add it during the mixing process. It makes the elote a bit funky if meal prepping or sitting out a long time.
+- Avoid adding salt, as you get saltiness from the mayo and from your toppings.
+
+### Topping Selection
+- Tajin is elite as an Elote topping.
+
+### No Grill? No Problem!
+- You can achieve a similar result by broiling the corn in your oven or carefully charring it over a gas stove flame. Be sure to turn it frequently for even cooking and char.
+:::
+
+:::references
+- Reference Recipe **[HERE](https://www.seriouseats.com/mexican-street-corn-elotes-recipe)**
+:::
+
+::card
