@@ -12,7 +12,7 @@ author: "jake"
 description: "A comforting chicken noodle soup perfect for rainy or sick days. Made easy in the Instant Pot but can be adapted for stovetop cooking."
 featured: false
 display: true
-displayPhoto: ""
+displayPhoto: "./assets/chicken-noodle-soup.jpg"
 ---
 
 A comforting chicken noodle soup perfect for rainy or sick days. Made easy in the Instant Pot but can be adapted for stovetop cooking

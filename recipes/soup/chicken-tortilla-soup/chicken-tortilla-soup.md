@@ -12,7 +12,7 @@ author: "jake"
 description: "Chicken tortilla soup made easy with a rotisserie chicken, topped with homemade crispy tortilla strips."
 featured: false
 display: true
-displayPhoto: ""
+displayPhoto: "./assets/chicken-tortilla-soup.jpg"
 ---
 
 :::photos
