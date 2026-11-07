@@ -3,6 +3,7 @@
 ## State and Data Flow
 
 - **RecipeLayout** owns sidebar open/close state; passes `handleFilterChange` (memoised with `useCallback`) down to RecipesSidebar
+- **Sidebar** is the generic shell: a modal drawer below `lg`, a sticky column at `lg`+. While open it locks page scroll, closes on Escape/overlay/resize to `lg`, and moves focus in (restoring it on close). Its body has `overscroll-contain` so drawer scrolling never chains to the page. `onClose` must be stable (`useCallback`) since its effects depend on it
 - **RecipesSidebar** owns local UI state (debounced search input, tag filter text, show-more toggles) and reports filter changes via `onFilterChange`
 - **RecipesClient** owns filter state (synced to the URL), the filtered recipe list, and facet counts (all memoised with `useMemo`). Each facet's counts apply every filter except its own; options with zero results are hidden
 - **ActiveFilters** renders removable chips for the active filters above the results grid

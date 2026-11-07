@@ -31,7 +31,8 @@ app/                          # Next.js App Router pages
 components/
   Header.tsx / Footer.tsx     # Site chrome
   RecipesClient.tsx           # Recipe listing with filter state
-  RecipeLayout.tsx            # Sidebar layout (mobile drawer, desktop persistent)
+  RecipeLayout.tsx            # Recipe listing layout: filter button, Sidebar + results
+  Sidebar.tsx                 # Responsive sidebar shell (mobile drawer, desktop sticky column)
   RecipesSidebar.tsx          # Search + category/tag facet lists with result counts
   FacetGroup.tsx              # Collapsible sidebar facet section
   ActiveFilters.tsx           # Removable chips for active filters (above results)
