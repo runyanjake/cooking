@@ -5,11 +5,11 @@ date: "2026-11-06"
 lastUpdated: "2026-11-06"
 category: "soup"
 tags: ["soup", "mexican", "chicken"]
-cookTime: 30
-prepTime: 15
-servings: 6
+cookTime: 45
+prepTime: 25
+servings: 15
 author: "jake"
-description: "Chicken tortilla soup made easy with a rotisserie chicken, topped with homemade crispy tortilla strips."
+description: "A hearty soup made with rotisserie chicken, topped with homemade tortilla strips or eaten with chips."
 featured: false
 display: true
 displayPhoto: "./assets/chicken-tortilla-soup.jpg"
@@ -60,7 +60,7 @@ displayPhoto: "./assets/chicken-tortilla-soup.jpg"
 
 :::notes
 ### Storage
-- Refrigerate for 3-4 days or freeze for up to 2 months. Store without toppings.
+- This recipe stores well in the fridge. Leave the cilantro seperate, becuase it will cook in the pot. 
 :::
 
 :::references

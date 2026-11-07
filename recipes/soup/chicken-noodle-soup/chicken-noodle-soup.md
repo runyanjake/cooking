@@ -4,18 +4,16 @@ slug: "chicken-noodle-soup"
 date: "2026-02-08"
 lastUpdated: "2026-02-08"
 category: "soup"
-tags: ["soup", "chicken", "instant-pot", "meal-prep"]
-cookTime: 40
-prepTime: 20
-servings: 8
+tags: ["soup", "chicken"]
+cookTime: 45
+prepTime: 25
+servings: 10
 author: "jake"
 description: "A comforting chicken noodle soup perfect for rainy or sick days. Made easy in the Instant Pot but can be adapted for stovetop cooking."
 featured: false
 display: true
 displayPhoto: "./assets/chicken-noodle-soup.jpg"
 ---
-
-A comforting chicken noodle soup perfect for rainy or sick days. Made easy in the Instant Pot but can be adapted for stovetop cooking
 
 :::photos
 ![Chicken Noodle Soup](./assets/chicken-noodle-soup.jpg "Chicken Noodle Soup")
@@ -53,7 +51,7 @@ A comforting chicken noodle soup perfect for rainy or sick days. Made easy in th
 :::notes
 ### Meal Prep Tips
 - **Make it last**: This recipe can make nearly a whole week of soup. Double it if you're feeling dangerous.
-- **Noodle absorption**: If doing meal prep with lots of noodles or macaroni, they tend to soak up the broth. Double the water and broth amounts if you want it to keep in the fridge and retain liquid, versus becoming more of a soup-casserole.
+- **Noodle absorption**: If doing meal prep with lots of noodles or macaroni, they tend to soak up the broth. Sturdier noodles (e.g. whole wheat vs egg noodle) hold up better in the pot, but you can just store noodles seperately to make the eating experience better toward the end.\
 
 ### Seasoning Tips
 - **Don't oversalt**: Watch the amount of salt in this recipe - it's pretty easy to over-salt if you're not careful, especially with the bouillon cube.
