@@ -66,8 +66,11 @@ displayPhoto: "./assets/palak-paneer.jpg"
 - It really doesn't need it, but you can add heavy whipping cream to thicken the gravy. However it should be relatively thick as is.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.indianhealthyrecipes.com/palak-paneer-recipe-easy-paneer-recipes-step-by-step-pics/)**
 :::
-
-::card

@@ -65,8 +65,11 @@ A beloved Italian-American comfort food that combines crispy breaded chicken cut
 - **Spicy**: Add red pepper flakes to the breadcrumb mixture
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.example.com)**
 :::
-
-::card

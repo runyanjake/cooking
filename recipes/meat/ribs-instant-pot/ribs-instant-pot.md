@@ -55,8 +55,11 @@ displayPhoto: ""
 - Always worth it to make your own barbecue sauce & rub!
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.wellplated.com/instant-pot-ribs/)**
 :::
-
-::card

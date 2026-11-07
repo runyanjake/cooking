@@ -67,8 +67,11 @@ displayPhoto: ""
 - It's difficult to sub cheese in this recipe but using a low fat mozzarella cheese makes it a slight bit healthier.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.homemadeitaliancooking.com/chicken-parmesan/)**
 :::
-
-::card

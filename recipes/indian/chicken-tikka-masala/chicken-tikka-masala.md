@@ -68,8 +68,11 @@ displayPhoto: "./assets/chicken-tikka-masala.jpg"
 - Let chicken marinate for overnight if possible.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://cafedelites.com/chicken-tikka-masala/)**
 :::
-
-::card

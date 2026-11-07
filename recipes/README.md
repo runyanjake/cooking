@@ -74,30 +74,43 @@ displayPhoto: "./assets/hero.jpg"
 
 **Note:** Author IDs must match entries in `public/authors.json`. Categories and tags are free-form strings — there is no taxonomy registry file.
 
-#### Content Sections
+#### Tabs
 
-Content is plain markdown, divided into sections with directives. Each `:::name` … `:::` block becomes a tab:
+The markdown controls the page. Every tab is a `:::name` … `:::` block, shown in the order it appears in the file, and nothing is added for you.
+
+Any name works, so to add a tab just write one. The title comes from the name (`:::wine-pairing` becomes "Wine Pairing"), or set your own with a label: `:::notes[Chef Tips]`.
+
+The usual tabs are:
 
 1. **`:::photos`** - Recipe images; the image title is the caption: `![Alt](./assets/hero.jpg "Caption")`
 2. **`:::ingredients`** - Lists of ingredients (can use `###` subsections)
 3. **`:::instructions`** - Step-by-step cooking instructions (can use `###` subsections)
-4. **`:::notes`** - Tips, variations, storage info (optional)
-5. **`:::references`** - Sources, inspirations, credits (optional)
+4. **`:::notes`** - Tips, variations, storage info
+5. **`:::card`** - Printable recipe card (see below)
+6. **`:::references`** - Sources, inspirations, credits
 
-Markdown before the first section is intro prose; markdown after the last is outro prose.
+Markdown before the first tab is intro prose; markdown after the last is outro prose.
 
-#### Recipe Card (optional)
+#### Recipe Card
 
-Add `::card` on its own line for a **Recipe Card** tab: a 5×7 in, 300 DPI PNG built from the ingredients and instructions. Click the image to view it full screen. Long recipes are split into a front and back automatically. The tab always sits after Notes and before References, wherever `::card` appears in the file.
-
-To put a shorter version on the card, use the container form with **four** colons. Leave out a section to use the full one:
+`:::card` is a tab showing a 5×7 in, 300 DPI PNG. Click the image to view it full screen. List the one or two sections to print, using `::name` to reuse another tab. Long recipes are split into a front and back automatically.
 
 ```md
-::::card
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+```
+
+To put a shorter version on the card, write it inside. The outer fence then needs **four** colons:
+
+```md
+::::card[Recipe Card]
 :::ingredients
 - 2 cups flour
 - 1 cup sugar
 :::
+::instructions
 ::::
 ```
 
@@ -152,14 +165,17 @@ Introduction paragraph about the recipe.
 - How to store leftovers
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Source credits
 :::
-
-::card
 ```
 
-Typos in directive names (e.g. `:::ingrediants`) fail the build with the file and line number.
+Mistakes like duplicate tabs or a card listing a tab that doesn't exist fail the build with the file and line number. Any name is a valid tab, so check the page for misspelled ones.
 
 ## Content Guidelines
 

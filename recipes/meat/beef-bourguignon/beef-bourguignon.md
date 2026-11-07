@@ -58,8 +58,11 @@ Serve with crusty bread or over mashed potatoes for a hearty meal.
 - Serve with crusty bread or over mashed potatoes for a hearty meal.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://cafedelites.com/beef-bourguignon/)**
 :::
-
-::card

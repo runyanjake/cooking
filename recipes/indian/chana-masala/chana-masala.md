@@ -76,8 +76,11 @@ displayPhoto: "./assets/chana-masala.jpg"
 - Recipe usually heavy on the chana, adjust how you like it.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.indianhealthyrecipes.com/chana-masala/)**
 :::
-
-::card

@@ -45,8 +45,11 @@ displayPhoto: ""
 - If you're adding meat a sweet sauce usually breaks up all the salt you'll be adding.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://joyfoodsunshine.com/easy-homemade-pizza-sauce-recipe/)**
 :::
-
-::card

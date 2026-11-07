@@ -62,8 +62,11 @@ The ultimate chocolate chip cookie recipe that delivers crispy edges, chewy cent
 - **Thick and bakery-style**: Increase flour to 2 1/2 cups and chill overnight
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.example.com)**
 :::
-
-::card

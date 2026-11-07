@@ -49,8 +49,11 @@ Fajita Vegetables
 - **Hot pan, hot oil**: a ripping-hot skillet gives the char marks that make fajitas taste like fajitas.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Adapted from **[Spend With Pennies - Easy Chicken Fajitas](https://www.spendwithpennies.com/easy-chicken-fajitas/)**
 :::
-
-::card

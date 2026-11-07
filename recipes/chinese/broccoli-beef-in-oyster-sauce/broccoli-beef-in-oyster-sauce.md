@@ -56,8 +56,11 @@ displayPhoto: ""
 - Use more broccoli than you think you need!
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.youtube.com/watch?v=fSO83XlKcPI)**
 :::
-
-::card

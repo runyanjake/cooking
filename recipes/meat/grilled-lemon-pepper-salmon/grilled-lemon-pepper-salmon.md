@@ -41,8 +41,11 @@ displayPhoto: ""
 - Use a good amount of lemon pepper, but be careful of making it too lemony. Extra pepper is usually fine.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Idk talk to my mom...
 :::
-
-::card

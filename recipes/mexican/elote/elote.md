@@ -53,8 +53,11 @@ You can achieve a similar result by broiling the corn in your oven or carefully 
 - You can achieve a similar result by broiling the corn in your oven or carefully charring it over a gas stove flame. Be sure to turn it frequently for even cooking and char.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.seriouseats.com/mexican-street-corn-elotes-recipe)**
 :::
-
-::card

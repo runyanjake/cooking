@@ -58,8 +58,11 @@ displayPhoto: ""
 - Don't forget the egg wash!
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://sallysbakingaddiction.com/apple-pie-recipe/)**
 :::
-
-::card

@@ -7,7 +7,7 @@
 - **RecipesSidebar** owns local UI state (debounced search input, tag filter text, show-more toggles) and reports filter changes via `onFilterChange`
 - **RecipesClient** owns filter state (synced to the URL), the filtered recipe list, and facet counts (all memoised with `useMemo`). Each facet's counts apply every filter except its own; options with zero results are hidden
 - **ActiveFilters** renders removable chips for the active filters above the results grid
-- **Recipe page** gets the parsed `RecipeContent` from `getRecipeContent` (cached), renders each section with **RecipeMarkdown** (server), and passes them as tabs to **RecipeTabs** (client). All panels are in the HTML; inactive ones are `hidden`
+- **Recipe page** gets the parsed `RecipeContent` from `getRecipeContent` (cached), renders each tab in file order with **RecipeMarkdown** or **RecipeCardPanel** (server), and passes them to **RecipeTabs** (client). All panels are in the HTML; inactive ones are `hidden`
 - **Recipe card**: `getRecipeCardImages` computes the layout once per recipe; the page and the `card/[image]` route both use it, so the tab always matches the generated files. Layout measures real block heights with satori's `onNodeDetected`, so fitting is exact, not estimated
 
 ## Known Constraints

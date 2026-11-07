@@ -71,8 +71,11 @@ The whole dal retain their consistency, and the hulled and split dal thicken the
 - Try with all types of lentils!
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.indianhealthyrecipes.com/brown-lentils/)**
 :::
-
-::card

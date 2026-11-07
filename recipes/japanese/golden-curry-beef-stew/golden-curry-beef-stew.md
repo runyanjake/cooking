@@ -50,8 +50,11 @@ Macaroni salad goes great alongside the rice and curry stew.
 - Macaroni salad goes great alongside the rice and curry stew.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.waiyeehong.com/food-ingredients/sauces-oils/curry-sauces-and-pastes/golden-curry-mild)**
 :::
-
-::card

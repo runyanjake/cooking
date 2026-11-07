@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getRecipeByCategoryAndSlug, getAllRecipePaths, getRecipeContent } from '@/lib/recipes';
-import { SECTION_NAMES, type SectionName } from '@/lib/recipe-content';
 import { getRecipeCardImages } from '@/lib/recipe-card';
 import RecipePageLayout from '@/components/RecipePageLayout';
 import RecipeMarkdown from '@/components/RecipeMarkdown';
@@ -14,14 +13,6 @@ interface RecipePageProps {
     slug: string;
   }>;
 }
-
-const SECTION_TITLES: Record<SectionName, string> = {
-  photos: 'Photos',
-  ingredients: 'Ingredients',
-  instructions: 'Instructions',
-  notes: 'Notes',
-  references: 'References',
-};
 
 export const dynamicParams = false;
 
@@ -66,18 +57,14 @@ export default async function RecipePage({ params }: RecipePageProps) {
   const content = getRecipeContent(recipe);
 
   const cardImages = await getRecipeCardImages(recipe);
-  const cardTabs: RecipeTab[] = cardImages
-    ? [{ id: 'card', title: 'Recipe Card', content: <RecipeCardPanel title={recipe.title} images={cardImages} /> }]
-    : [];
 
-  // The card goes right before References, which is always the last tab
-  const tabs: RecipeTab[] = SECTION_NAMES.flatMap((name) => {
-    const section = content.sections[name];
-    const sectionTabs: RecipeTab[] = section
-      ? [{ id: name, title: SECTION_TITLES[name], content: <RecipeMarkdown content={section} recipe={recipe} /> }]
-      : [];
-    return name === 'references' ? [...cardTabs, ...sectionTabs] : sectionTabs;
-  });
+  const tabs: RecipeTab[] = content.tabs.map((tab) => ({
+    id: tab.name,
+    title: tab.title,
+    content: tab.type === 'card'
+      ? <RecipeCardPanel title={recipe.title} images={cardImages} />
+      : <RecipeMarkdown content={tab.content} recipe={recipe} />,
+  }));
 
   return (
     <RecipePageLayout recipe={recipe}>

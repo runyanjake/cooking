@@ -49,8 +49,11 @@ The coconut cream settles to the bottom of the can, make sure to re-mix it befor
 - The coconut cream settles to the bottom of the can, make sure to re-mix it before using.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.recipetineats.com/golden-coconut-chicken-curry/)**
 :::
-
-::card

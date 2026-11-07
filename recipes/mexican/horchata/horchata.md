@@ -48,8 +48,11 @@ Heed the instructions and blend in batches. Water easily escapes from the blende
 - Heed the instructions and blend in batches. Water easily escapes from the blender or food processor and this stuff gets everywhere.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.muydelish.com/traditional-mexican-horchata/)**
 :::
-
-::card

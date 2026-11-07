@@ -62,8 +62,11 @@ displayPhoto: "./assets/lamb-vindaloo.jpg"
 - **It's Not Vindaloo if it's Not Spicy**: My friends say it's so - you better be coughing!
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.indianhealthyrecipes.com/lamb-vindaloo/)**
 :::
-
-::card

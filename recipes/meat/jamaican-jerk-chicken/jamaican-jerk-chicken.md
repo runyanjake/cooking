@@ -45,8 +45,11 @@ displayPhoto: ""
 7. Transfer the chicken to a platter and serve.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.foodandwine.com/recipes/jamaican-jerk-chicken)**
 :::
-
-::card

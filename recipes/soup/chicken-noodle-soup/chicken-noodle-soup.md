@@ -60,8 +60,11 @@ displayPhoto: "./assets/chicken-noodle-soup.jpg"
 This recipe can be made on the stovetop by simmering the ingredients in a large pot for about 30-40 minutes until the chicken is cooked through, then following the same steps for shredding and adding noodles.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.jocooks.com/recipes/instant-pot-chicken-noodle-soup/)**
 :::
-
-::card

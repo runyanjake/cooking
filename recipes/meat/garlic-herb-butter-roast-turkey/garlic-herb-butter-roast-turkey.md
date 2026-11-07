@@ -58,8 +58,11 @@ displayPhoto: ""
 - It's hard to get perfect cuts on the garlic. I found success by lightly sawing with a sharpened knife. When squeezing the garlic out try not to burn yourself.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://cafedelites.com/roast-turkey/)**
 :::
-
-::card

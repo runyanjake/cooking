@@ -5,20 +5,32 @@ import remarkDirective from 'remark-directive';
 import type { Image, Paragraph, Parent, Root, RootContent } from 'mdast';
 import type { ContainerDirective } from 'mdast-util-directive';
 import type { ElementContent } from 'hast';
+import { toString } from 'mdast-util-to-string';
 
-// Section directives, in tab order
-export const SECTION_NAMES = ['photos', 'ingredients', 'instructions', 'notes', 'references'] as const;
-export type SectionName = (typeof SECTION_NAMES)[number];
+// The one reserved tab name: its body says what the printable card shows
+const CARD_NAME = 'card';
+const MAX_CARD_SECTIONS = 2;
 
-// Sections a custom ::::card can override
-const CARD_SECTION_NAMES = ['ingredients', 'instructions'] as const;
-export type CardSectionName = (typeof CARD_SECTION_NAMES)[number];
+export interface MarkdownTab {
+  type: 'markdown';
+  name: string;
+  title: string;
+  content: Root;
+}
+
+export interface CardTab {
+  type: 'card';
+  name: string;
+  title: string;
+  sections: MarkdownTab[];
+}
+
+export type RecipeTabContent = MarkdownTab | CardTab;
 
 export interface RecipeContent {
   intro: Root;
-  sections: Partial<Record<SectionName, Root>>;
-  // null unless the recipe opts in with ::card or ::::card
-  card: Partial<Record<CardSectionName, Root>> | null;
+  // In the order they appear in the file
+  tabs: RecipeTabContent[];
   outro: Root;
 }
 
@@ -30,14 +42,6 @@ export class RecipeFormatError extends Error {
 }
 
 const processor = unified().use(remarkParse).use(remarkGfm).use(remarkDirective);
-
-function isSectionName(name: string): name is SectionName {
-  return (SECTION_NAMES as readonly string[]).includes(name);
-}
-
-function isCardSectionName(name: string): name is CardSectionName {
-  return (CARD_SECTION_NAMES as readonly string[]).includes(name);
-}
 
 function root(children: RootContent[]): Root {
   return { type: 'root', children };
@@ -89,23 +93,52 @@ function imageParagraphsToFigures(tree: Root) {
   });
 }
 
-function parseCardContainer(node: ContainerDirective, filePath: string): Partial<Record<CardSectionName, Root>> {
-  const card: Partial<Record<CardSectionName, Root>> = {};
-  for (const child of node.children) {
-    if (child.type === 'containerDirective' && isCardSectionName(child.name)) {
-      if (card[child.name]) {
-        throw new RecipeFormatError(filePath, child, `::::card has more than one :::${child.name}`);
+// `wine-pairing` reads as "Wine Pairing"
+function titleFromName(name: string): string {
+  return name.split(/[-_]/).filter(Boolean).map((word) => word[0].toUpperCase() + word.slice(1)).join(' ');
+}
+
+// `:::name[Title]` sets the title, which remark-directive stores as a leading labelled paragraph
+function toMarkdownTab(node: ContainerDirective): MarkdownTab {
+  const [first, ...rest] = node.children;
+  const label = first?.type === 'paragraph' && first.data?.directiveLabel ? first : undefined;
+  return {
+    type: 'markdown',
+    name: node.name,
+    title: label ? toString(label) : titleFromName(node.name),
+    content: root((label ? rest : node.children) as RootContent[]),
+  };
+}
+
+// Each child of :::card is either `::tab`, reusing a tab, or `:::name … :::`, written just for the card
+function parseCard(node: ContainerDirective, tabs: MarkdownTab[], filePath: string): CardTab {
+  const { title, content } = toMarkdownTab(node);
+  const sections: MarkdownTab[] = [];
+  for (const child of content.children) {
+    let section: MarkdownTab | undefined;
+    if (child.type === 'containerDirective') {
+      section = toMarkdownTab(child);
+    } else if (child.type === 'leafDirective') {
+      section = tabs.find((tab) => tab.name === child.name);
+      if (!section) {
+        throw new RecipeFormatError(filePath, child, `:::card lists ::${child.name}, but this recipe has no :::${child.name} tab`);
       }
-      card[child.name] = root(child.children as RootContent[]);
     } else {
       throw new RecipeFormatError(
         filePath,
         child,
-        `::::card may only contain :::ingredients and :::instructions blocks (the outer fence needs four colons)`
+        'A :::card may only contain ::tab references and :::name blocks (around :::name blocks, its fence needs four colons)'
       );
     }
+    if (sections.some((s) => s.name === section.name)) {
+      throw new RecipeFormatError(filePath, child, `:::card lists ${section.name} more than once`);
+    }
+    sections.push(section);
   }
-  return card;
+  if (sections.length === 0 || sections.length > MAX_CARD_SECTIONS) {
+    throw new RecipeFormatError(filePath, node, 'A :::card must list one or two sections, e.g. ::ingredients and ::instructions');
+  }
+  return { type: 'card', name: node.name, title, sections };
 }
 
 export function parseRecipeContent(source: string, filePath: string): RecipeContent {
@@ -113,47 +146,35 @@ export function parseRecipeContent(source: string, filePath: string): RecipeCont
   restoreTextDirectives(tree, source);
   imageParagraphsToFigures(tree);
 
-  const content: RecipeContent = { intro: root([]), sections: {}, card: null, outro: root([]) };
-  let cardNode: RootContent | undefined;
-  let seenSection = false;
+  const intro: RootContent[] = [];
+  const tabNodes: ContainerDirective[] = [];
   let trailing: RootContent[] = [];
 
   for (const node of tree.children) {
-    if (node.type === 'containerDirective' && isSectionName(node.name)) {
+    if (node.type === 'containerDirective') {
       if (trailing.length > 0) {
-        throw new RecipeFormatError(filePath, trailing[0], 'Content between sections must go inside a section');
+        throw new RecipeFormatError(filePath, trailing[0], 'Content between tabs must go inside a tab');
       }
-      if (content.sections[node.name]) {
-        throw new RecipeFormatError(filePath, node, `Duplicate :::${node.name} section`);
+      if (tabNodes.some((tab) => tab.name === node.name)) {
+        throw new RecipeFormatError(filePath, node, `Duplicate :::${node.name} tab`);
       }
-      if (node.children.length > 0) {
-        content.sections[node.name] = root(node.children as RootContent[]);
-      }
-      seenSection = true;
-      trailing = [];
-    } else if ((node.type === 'leafDirective' || node.type === 'containerDirective') && node.name === 'card') {
-      if (content.card) {
-        throw new RecipeFormatError(filePath, node, 'A recipe can only have one ::card');
-      }
-      content.card = node.type === 'containerDirective' ? parseCardContainer(node, filePath) : {};
-      cardNode = node;
-    } else if (node.type === 'leafDirective' || node.type === 'containerDirective') {
-      const hint = node.type === 'leafDirective' && isSectionName(node.name)
-        ? ` Sections need the container form: :::${node.name} … :::`
-        : ` Known directives: ${SECTION_NAMES.map((n) => `:::${n}`).join(', ')}, ::card`;
-      throw new RecipeFormatError(filePath, node, `Unknown directive "${node.name}".${hint}`);
-    } else if (seenSection) {
+      tabNodes.push(node);
+    } else if (node.type === 'leafDirective') {
+      throw new RecipeFormatError(filePath, node, `Tabs need the container form: :::${node.name} … :::`);
+    } else if (tabNodes.length > 0) {
       trailing.push(node);
     } else {
-      content.intro.children.push(node);
+      intro.push(node);
     }
   }
-  content.outro.children = trailing;
 
-  if (content.card && !content.card.ingredients && !content.card.instructions &&
-      !content.sections.ingredients && !content.sections.instructions) {
-    throw new RecipeFormatError(filePath, cardNode, '::card needs an :::ingredients or :::instructions section');
-  }
+  // A card can list tabs from anywhere in the file, so it's resolved once they're all known
+  const markdownTabs = tabNodes.filter((node) => node.name !== CARD_NAME).map(toMarkdownTab);
+  const tabs = tabNodes.map((node): RecipeTabContent =>
+    node.name === CARD_NAME
+      ? parseCard(node, markdownTabs, filePath)
+      : markdownTabs.find((tab) => tab.name === node.name)!
+  );
 
-  return content;
+  return { intro: root(intro), tabs, outro: root(trailing) };
 }

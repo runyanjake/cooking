@@ -56,8 +56,11 @@ displayPhoto: "./assets/fried-rice.jpg"
 - Substitute frozen corn, edamame, or diced bell pepper for the peas and carrots.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.thekitchn.com/fried-rice-recipe-23652991)**
 :::
-
-::card

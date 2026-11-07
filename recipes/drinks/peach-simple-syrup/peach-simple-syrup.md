@@ -46,8 +46,11 @@ This peach syrup is perfect for cocktails (like a Peach Mojito or Bellini), mock
 - This peach syrup is perfect for cocktails (like a Peach Mojito or Bellini), mocktails, sweetening iced tea or lemonade, drizzling over pancakes, or adding to sparkling water for a refreshing peach soda.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.alphafoodie.com/how-to-make-peach-simple-syrup/)**
 :::
-
-::card

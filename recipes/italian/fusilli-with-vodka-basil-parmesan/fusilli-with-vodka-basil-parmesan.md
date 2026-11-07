@@ -56,8 +56,11 @@ displayPhoto: ""
 - Lasts quite a while, but reheat quality is not super presentable because of the heavy cream.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.bonappetit.com/recipe/fusilli-alla-vodka-basil-parmesan)**
 :::
-
-::card

@@ -49,8 +49,11 @@ displayPhoto: ""
 - The only way to mess up is to create a hole in the bag. This happens when the rosemary branches poke the bag. Make sure to chop up the rosemary before putting in the bag.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.youtube.com/watch?app=desktop&v=WRrtw9NwcIU&t=72s)**
 :::
-
-::card

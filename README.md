@@ -7,7 +7,7 @@ A content-first personal recipe site.
 ## Stack
 
 - **Next.js**, **TypeScript** + **Tailwind CSS**
-- **Markdown** with YAML frontmatter metadata, using directives (`:::ingredients`) for recipe sections.
+- **Markdown** with YAML frontmatter metadata, using directives (`:::ingredients`) for recipe tabs.
 - **remark** (+ gfm, directive) for server-side parsing; **satori** + **sharp** for printable recipe cards.
 - No database — recipes are checked into the repo.
 
@@ -69,7 +69,7 @@ displayPhoto: "./assets/hero.jpg"
 
 ### Content Structure
 
-Each `:::section` block becomes a tab. Add `::card` for a printable 5×7 recipe card tab:
+Each `:::name` block is a tab, shown in file order. Any name works, and `:::name[Title]` sets the title. `:::card` is a printable 5×7 recipe card that lists what it prints:
 
 ```md
 Intro prose (rendered above the tabs).
@@ -90,14 +90,17 @@ Intro prose (rendered above the tabs).
 Optional tips.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 Optional credits.
 :::
-
-::card
 ```
 
-If a recipe is too long for the card, it's split front/back automatically. To write a shorter card instead, use `::::card` (four colons) containing its own `:::ingredients` and/or `:::instructions`. See `.claude/rules/recipe-format.md` for the full format.
+If a recipe is too long for the card, it's split front/back automatically. To write a shorter card instead, use `::::card` (four colons) containing its own `:::ingredients` and/or `:::instructions` blocks. See `.claude/rules/recipe-format.md` for the full format.
 
 ## Development
 
@@ -106,6 +109,7 @@ npm install
 npm run dev       # 3000
 npm run build
 npm run lint
+npm test
 ```
 
 ## Deployment

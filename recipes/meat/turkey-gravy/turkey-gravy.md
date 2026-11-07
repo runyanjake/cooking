@@ -38,8 +38,11 @@ displayPhoto: ""
 - Make sure to scoop up both drippings and fat when gathering the pan juices. All are important!
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://cafedelites.com/turkey-gravy/)**
 :::
-
-::card

@@ -61,8 +61,11 @@ Straining after blending is important for a smooth texture in the consumé. Howe
 - Straining after blending is important for a smooth texture in the consumé. However, leaving it lightly chunky is not a bad thing.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.isabeleats.com/authentic-birria/)**
 :::
-
-::card
