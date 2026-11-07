@@ -17,5 +17,5 @@
 - Paragraphs containing only images are converted to `<figure>` elements during parsing (caption from the image title), so there's no `<p><figure>` nesting
 - Card fonts are read from `node_modules/@fontsource/*` at build time; satori needs woff/ttf (not woff2) and doesn't support variable fonts
 - `lib/recipes.ts` uses Node.js `fs` — server-side only; never import in client components
-- Build warnings about `<img>` vs `<Image />` in RecipeMarkdown and RecipeCardPanel are intentional
+- Build warnings about `<img>` vs `<Image />` in RecipeMarkdown and RecipeCardImage are intentional
 - Never add redundant ARIA roles on semantic elements (`<main>`, `<aside>`, `<footer>` already carry implicit roles)

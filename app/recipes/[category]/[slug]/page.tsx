@@ -65,21 +65,19 @@ export default async function RecipePage({ params }: RecipePageProps) {
 
   const content = getRecipeContent(recipe);
 
+  const cardImages = await getRecipeCardImages(recipe);
+  const cardTabs: RecipeTab[] = cardImages
+    ? [{ id: 'card', title: 'Recipe Card', content: <RecipeCardPanel title={recipe.title} images={cardImages} /> }]
+    : [];
+
+  // The card goes right before References, which is always the last tab
   const tabs: RecipeTab[] = SECTION_NAMES.flatMap((name) => {
     const section = content.sections[name];
-    return section
+    const sectionTabs: RecipeTab[] = section
       ? [{ id: name, title: SECTION_TITLES[name], content: <RecipeMarkdown content={section} recipe={recipe} /> }]
       : [];
+    return name === 'references' ? [...cardTabs, ...sectionTabs] : sectionTabs;
   });
-
-  const cardImages = await getRecipeCardImages(recipe);
-  if (cardImages) {
-    tabs.push({
-      id: 'card',
-      title: 'Recipe Card',
-      content: <RecipeCardPanel title={recipe.title} images={cardImages} />,
-    });
-  }
 
   return (
     <RecipePageLayout recipe={recipe}>

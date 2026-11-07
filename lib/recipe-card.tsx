@@ -74,7 +74,6 @@ export interface RecipeCardImage {
   label: string;
   url: string;
   fileName: string;
-  downloadName: string;
 }
 
 let fonts: Font[] | null = null;
@@ -404,7 +403,6 @@ export async function getRecipeCardImages(recipe: Recipe): Promise<RecipeCardIma
     label: FACE_LABELS[face.name],
     fileName: `${face.name}.png`,
     url: recipeCardImageUrl(recipe, `${face.name}.png`),
-    downloadName: `${recipe.slug}-recipe-card${face.name === 'card' ? '' : `-${face.name}`}.png`,
   }));
 }
 

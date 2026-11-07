@@ -42,7 +42,7 @@ Markdown before the first section renders as intro prose above the tabs; markdow
 
 ### Recipe card (opt in)
 
-- `::card` adds a Recipe Card tab with a printable 5×7 in PNG generated from `:::ingredients` and `:::instructions`
+- `::card` adds a Recipe Card tab with a printable 5×7 in PNG generated from `:::ingredients` and `:::instructions`. The tab always sits after Notes and before References, wherever the directive appears in the file
 - To give the card a shorter version, use the container form. The outer fence needs **four** colons; any section left out falls back to the full one:
 
 ```md
