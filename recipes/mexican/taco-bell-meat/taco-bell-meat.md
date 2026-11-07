@@ -43,8 +43,11 @@ displayPhoto: "./assets/taco-bell-meat.jpg"
 Slightly fatty meat helps the cornstarch slurry thicken the meat.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.favfamilyrecipes.com/taco-bell-meat/)**
 :::
-
-::card

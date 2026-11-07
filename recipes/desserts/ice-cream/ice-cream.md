@@ -48,8 +48,11 @@ displayPhoto: "./assets/ice-cream.jpg"
 When covering the custard, make sure the plastic wrap touches the surface or the air contact will dry out the top layer of the custard, making it lumpy when mixed. This is less important after it has cooled to room temperature.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipes **[HERE](https://sweetfromscratch.com/easy-homemade-custard-ice-cream-recipe/)** and **[HERE](https://www.youtube.com/watch?v=MdirPsiHnCA)**.
 :::
-
-::card

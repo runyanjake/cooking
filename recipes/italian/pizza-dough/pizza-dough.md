@@ -45,8 +45,11 @@ displayPhoto: "./assets/pizza-dough.jpg"
 - Good yeast is the secret here. From a packet is better than keeping bulk usually. Either way, the more bubbles the better.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.crazyforcrust.com/the-ultimate-pizza-crust-recipe/)**
 :::
-
-::card

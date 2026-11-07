@@ -6,7 +6,6 @@ import type { List, Root } from 'mdast';
 import { toString } from 'mdast-util-to-string';
 import type { ReactElement } from 'react';
 import { getRecipeContent, type Recipe } from './recipes';
-import type { CardSectionName } from './recipe-content';
 import { recipeCardImageUrl } from './recipe-urls';
 import { SITE_NAME, SITE_URL } from './site';
 
@@ -36,18 +35,14 @@ const COLORS = {
   accent: '#9a3412',
 };
 
-const SECTION_LABELS: Record<CardSectionName, string> = {
-  ingredients: 'Ingredients',
-  instructions: 'Instructions',
-};
-
 type Block =
   | { kind: 'heading'; text: string }
   | { kind: 'item'; marker: string; ordered: boolean; depth: number; text: string }
   | { kind: 'text'; text: string };
 
 interface CardSection {
-  name: CardSectionName;
+  name: string;
+  title: string;
   blocks: Block[];
 }
 
@@ -193,7 +188,7 @@ function renderLabel(section: CardSection, fontSize: number, visible: boolean, k
         paddingBottom: Math.round(fontSize * 0.45),
       }}
     >
-      {SECTION_LABELS[section.name]}
+      {section.title}
     </div>
   );
 }
@@ -319,15 +314,16 @@ function flowIntoColumns(
 }
 
 async function computeLayout(recipe: Recipe): Promise<CardLayout | null> {
-  const content = getRecipeContent(recipe);
-  if (!content.card) return null;
+  const card = getRecipeContent(recipe).tabs.find((tab) => tab.type === 'card');
+  if (!card) return null;
 
-  const sections: CardSection[] = (['ingredients', 'instructions'] as const)
-    .map((name) => {
-      const tree = content.card?.[name] ?? content.sections[name];
-      return tree ? { name, blocks: toBlocks(tree) } : null;
-    })
-    .filter((s): s is CardSection => s !== null && s.blocks.length > 0);
+  const sections: CardSection[] = card.sections.map(({ name, title, content }) => {
+    const blocks = toBlocks(content);
+    if (blocks.length === 0) {
+      throw new Error(`${path.relative(process.cwd(), recipe.filePath)}: :::card lists ${name}, which has no text to print.`);
+    }
+    return { name, title, blocks };
+  });
 
   const measurements = new Map<string, ColumnMeasurement>();
   const measure = async (section: CardSection, width: number, fontSize: number) => {
@@ -382,7 +378,7 @@ async function computeLayout(recipe: Recipe): Promise<CardLayout | null> {
 
   throw new Error(
     `${path.relative(process.cwd(), recipe.filePath)}: the recipe card doesn't fit on a 5×7 card, even front and back ` +
-    `at the smallest text size. Write a shorter version for the card with ::::card.`
+    `at the smallest text size. Write a shorter version inside :::card.`
   );
 }
 
@@ -395,10 +391,10 @@ function getLayout(recipe: Recipe): Promise<CardLayout | null> {
 
 const FACE_LABELS: Record<FaceName, string> = { card: 'Card', front: 'Front', back: 'Back' };
 
-// The card's image files, or null if the recipe doesn't opt in with ::card
-export async function getRecipeCardImages(recipe: Recipe): Promise<RecipeCardImage[] | null> {
+// The card's image files; empty if the recipe has no :::card
+export async function getRecipeCardImages(recipe: Recipe): Promise<RecipeCardImage[]> {
   const layout = await getLayout(recipe);
-  if (!layout) return null;
+  if (!layout) return [];
   return layout.faces.map((face) => ({
     label: FACE_LABELS[face.name],
     fileName: `${face.name}.png`,

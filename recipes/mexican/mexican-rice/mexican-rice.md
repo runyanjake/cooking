@@ -48,8 +48,11 @@ This rice is the perfect accompaniment to tacos, burritos, enchiladas, or any gr
 - This rice is the perfect accompaniment to tacos, burritos, enchiladas, or any grilled meat. Garnish with fresh cilantro for extra flavor and color.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.allrecipes.com/recipe/27072/mexican-rice-ii/)**
 :::
-
-::card

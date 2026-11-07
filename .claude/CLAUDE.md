@@ -7,7 +7,7 @@ A personal recipe website. Content-first, no-nonsense. The name of the third hom
 ## Tech Stack
 
 - **Next.js 15** with App Router, TypeScript, Tailwind CSS
-- **Markdown** (`.md`) for recipe content with YAML frontmatter; sections are markdown directives (`:::ingredients`, `::card`)
+- **Markdown** (`.md`) for recipe content with YAML frontmatter; every tab is a markdown directive (`:::ingredients`, `:::card`)
 - **unified + remark-gfm + remark-directive** to parse content server-side; `mdast-util-to-hast` + `hast-util-to-jsx-runtime` to render React
 - **satori + sharp** to generate printable recipe card PNGs at build time
 - **Static site generation (SSG)** — all pages are prerendered at build time
@@ -22,7 +22,7 @@ app/                          # Next.js App Router pages
   recipes/
     page.tsx                  # Recipe listing (server, passes data to RecipesClient)
     [category]/[slug]/
-      page.tsx                # Recipe detail (server, renders sections as tabs via RecipePageLayout)
+      page.tsx                # Recipe detail (server, renders the markdown's tabs via RecipePageLayout)
       assets/[...file]/
         route.ts              # Serves recipe images from recipes/ (prerendered at build)
       card/[image]/
@@ -46,7 +46,8 @@ components/
 
 lib/
   recipes.ts                  # Recipe file loader with in-memory cache; reads from recipes/
-  recipe-content.ts           # Parses a recipe body into intro / sections / card / outro; validates directives
+  recipe-content.ts           # Parses a recipe body into intro / tabs / outro; validates directives
+  recipe-content.test.ts      # Format tests; also parses every real recipe (npm test)
   recipe-card.tsx             # Card layout (measured with satori) and PNG rendering
   recipe-urls.ts              # Client-safe helper that maps ./assets/ paths to served URLs
 
@@ -67,5 +68,6 @@ public/
 
 - **Content first**: recipe pages are minimal — no sidebar, just the recipe
 - **Server components by default**: only add `'use client'` when interactivity is needed
+- **The markdown is the recipe**: tabs, their titles and order, and what the card prints are all written in the `.md` file. The renderer only turns what's written into the page; never add hardcoded tab names, ordering, or fallbacks
 - **No taxonomy file**: categories and tags are derived directly from frontmatter across all recipes — no external registry to keep in sync
 - **Content is top level**: markdown and images are colocated in `recipes/`; images are served by a statically prerendered route handler, so there's no copy step. `public/` is only for site branding and data

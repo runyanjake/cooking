@@ -44,8 +44,11 @@ displayPhoto: "./assets/creamy-jalapeno-sauce.jpg"
 - Mt Olive sells both normal and sweet jalapeno slices, you can make your choice. I used the normal ones.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.youtube.com/watch?v=-q95xwVy94Y)**
 :::
-
-::card

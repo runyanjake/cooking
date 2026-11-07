@@ -56,8 +56,11 @@ Also give the cooking wine addition a try (thanks, mom)
         Also give the cooking wine addition a try (thanks, mom)
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe [HERE](https://thewoksoflife.com/egg-drop-soup/)
 :::
-
-::card

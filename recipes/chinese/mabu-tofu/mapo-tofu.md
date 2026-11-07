@@ -65,8 +65,11 @@ displayPhoto: "./assets/mapo-tofu.jpg"
 - I much prefer silken (soft) tofu for this recipe.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://thewoksoflife.com/ma-po-tofu-real-deal/)**
 :::
-
-::card

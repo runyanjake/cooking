@@ -25,28 +25,34 @@ displayPhoto: "./assets/hero.jpg"
 
 ## Content Structure
 
-The body uses [generic markdown directives](https://talk.commonmark.org/t/generic-directives-plugins-syntax/444):
+The markdown controls the page: every tab is written in the file, in the order it appears, and the renderer adds, removes and reorders nothing.
 
-- **Container** `:::name` … `:::` wraps a section of ordinary markdown
-- **Leaf** `::name` on its own line inserts a generated object
+The body uses [generic markdown directives](https://talk.commonmark.org/t/generic-directives-plugins-syntax/444). Each top-level container `:::name` … `:::` is a tab:
 
-### Sections (each becomes a tab, in this order)
+- Any name works, so custom tabs need no code: `:::equipment`
+- The title comes from the name (`:::wine-pairing` → "Wine Pairing"); a label overrides it: `:::notes[Chef Tips]`
+- The body is ordinary markdown. An image's title becomes its caption: `![Alt text](./assets/hero.jpg "Caption")`
 
-- `:::photos` — images; the image title becomes the caption: `![Alt text](./assets/hero.jpg "Caption")`
-- `:::ingredients` — bullet lists, optionally grouped with `###` subheadings
-- `:::instructions` — numbered steps, optionally grouped with `###` subheadings
-- `:::notes` — tips, variations, storage (optional)
-- `:::references` — credits and sources (optional)
+Standard tabs are `:::photos`, `:::ingredients`, `:::instructions`, `:::notes`, `:::references`, and `:::card`. Only `card` has reserved behaviour.
 
-Markdown before the first section renders as intro prose above the tabs; markdown after the last section renders as outro prose below. Prose between sections is an error.
+Markdown before the first tab renders as intro prose above the tabs; markdown after the last tab renders as outro prose below. Prose between tabs is an error.
 
-### Recipe card (opt in)
+### Recipe card
 
-- `::card` adds a Recipe Card tab with a printable 5×7 in PNG generated from `:::ingredients` and `:::instructions`. The tab always sits after Notes and before References, wherever the directive appears in the file
-- To give the card a shorter version, use the container form. The outer fence needs **four** colons; any section left out falls back to the full one:
+`:::card[Recipe Card]` is a tab showing a printable 5×7 in PNG. Its body lists the one or two sections to print, left to right. `::name` reuses another tab, from anywhere in the file:
 
 ```md
-::::card
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+```
+
+A `:::name` block inside it is written just for the card, and can be mixed with references. The outer fence then needs **four** colons:
+
+```md
+::::card[Recipe Card]
+::ingredients
 :::instructions
 1. Condensed step one.
 2. Condensed step two.
@@ -54,11 +60,11 @@ Markdown before the first section renders as intro prose above the tabs; markdow
 ::::
 ```
 
-The card uses one side when the text fits at 8pt or larger; otherwise it splits into a front (ingredients) and back (instructions). The build fails if even front/back doesn't fit — add a `::::card` with shorter content.
+Only what's listed is printed; images, tables and code are left out. The card uses one side when the text fits at 8pt or larger; otherwise it splits into a front (first section) and back (second section). The build fails if even front/back doesn't fit — write shorter content inside `:::card`.
 
 ### Validation
 
-Unknown directives (e.g. `:::ingrediants`), duplicate sections, and a leaf form of a section (`::notes`) fail the build with the file and line. `:word` inside prose (e.g. "Tip:Use") is left as literal text.
+Duplicate tab names, a top-level leaf directive (`::notes`), an invalid card body, and a card listing a missing tab or nothing printable fail the build with the file. Since any name is a valid tab, a typo like `:::ingrediants` shows up as a misspelled tab rather than an error, and a card listing `::ingredients` then fails the build. `:word` inside prose (e.g. "Tip:Use") is left as literal text.
 
 ### Example
 
@@ -88,11 +94,14 @@ This recipe uses brown lentils (whole Masoor Dal)...
 - Try with different lentils!
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://example.com)**
 :::
-
-::card
 ```
 
 ## Image Paths

@@ -63,8 +63,11 @@ displayPhoto: "./assets/chicken-tortilla-soup.jpg"
 - This recipe stores well in the fridge. Leave the cilantro seperate, becuase it will cook in the pot. 
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Adapted from **[Natasha's Kitchen - Chicken Tortilla Soup](https://natashaskitchen.com/chicken-tortilla-soup-recipe/)**
 :::
-
-::card

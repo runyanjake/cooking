@@ -66,8 +66,11 @@ Pho is traditionally served piping hot with plenty of fresh herbs and condiments
 - Pho is traditionally served piping hot with plenty of fresh herbs and condiments. The key is the balance of rich broth, tender meat, and fresh garnishes.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://thewoksoflife.com/pho-vietnamese-noodle-soup/)**
 :::
-
-::card

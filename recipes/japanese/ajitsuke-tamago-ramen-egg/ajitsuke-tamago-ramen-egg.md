@@ -47,8 +47,11 @@ displayPhoto: ""
 - Depending on how long you age these, they'll get really salty. A few days is a good middle ground, after that you can take the eggs out and store separately.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.aspicyperspective.com/easy-ramen-egg-recipe-ajitsuke-tamago/)**
 :::
-
-::card

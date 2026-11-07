@@ -48,8 +48,11 @@ displayPhoto: ""
 - For ultra‑smooth mash, strain through a fine sieve. For dairy‑free, use olive oil and unsweetened almond milk. Add‑ins: roasted garlic, horseradish, or a spoon of sour cream for tang.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.seriouseats.com/cauliflower-puree-recipe)**
 :::
-
-::card

@@ -36,4 +36,7 @@ displayPhoto: "./assets/berry-smoothie.jpg"
 - Greek yogurt is healthier and becomes less watery over time.
 :::
 
-::card
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::

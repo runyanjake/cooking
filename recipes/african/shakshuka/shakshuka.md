@@ -67,8 +67,11 @@ displayPhoto: "./assets/shakshuka2.jpg"
 - Add a can of drained chickpeas to the sauce for extra protein.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://downshiftology.com/recipes/shakshuka/)**
 :::
-
-::card

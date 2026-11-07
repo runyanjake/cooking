@@ -39,8 +39,11 @@ displayPhoto: ""
 - In general, 1 cup of beans needs 4 cups of water to avoid the cooked beans drying out.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.rachelcooks.com/instant-pot-pinto-beans/)**
 :::
-
-::card

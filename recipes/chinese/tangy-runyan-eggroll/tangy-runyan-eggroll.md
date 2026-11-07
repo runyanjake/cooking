@@ -66,8 +66,11 @@ These make excellent additions to soup!
         These make excellent additions to soup!
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Thanks to my sister for providing the recipe!
 :::
-
-::card

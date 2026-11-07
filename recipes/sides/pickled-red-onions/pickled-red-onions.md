@@ -47,8 +47,11 @@ These are a great topping for ramen, sandwiches, charcuterie, salads, or anythin
 - Mix additionally after bottling to ensure proper coverage.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.gimmesomeoven.com/quick-pickled-red-onions/)**
 :::
-
-::card

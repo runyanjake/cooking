@@ -1,7 +1,7 @@
 import { getAllRecipes, getRecipeByCategoryAndSlug } from '@/lib/recipes';
 import { getRecipeCardImages, renderRecipeCardImage } from '@/lib/recipe-card';
 
-// Printable recipe card PNGs, generated at build time for recipes that opt in with ::card
+// Printable recipe card PNGs, generated at build time for recipes with a :::card tab
 export const dynamic = 'force-static';
 export const dynamicParams = false;
 
@@ -9,7 +9,7 @@ export async function generateStaticParams() {
   const params = await Promise.all(
     getAllRecipes().map(async (recipe) => {
       const images = await getRecipeCardImages(recipe);
-      return (images ?? []).map((image) => ({
+      return images.map((image) => ({
         category: recipe.category,
         slug: recipe.slug,
         image: image.fileName,

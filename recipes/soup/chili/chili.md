@@ -55,8 +55,11 @@ displayPhoto: "./assets/chili.jpg"
 - Shredded cheddar, sour cream, green onions, cilantro, sliced jalapeños, and hot sauce all work great.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.spendwithpennies.com/the-best-chili-recipe/)**
 :::
-
-::card

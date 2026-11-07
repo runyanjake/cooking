@@ -50,8 +50,11 @@ displayPhoto: "./assets/corned-beef-and-cabbage.jpg"
 - Always slice corned beef against the grain or it will be tough and stringy.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.tasteofhome.com/recipes/guinness-corned-beef-and-cabbage/)**
 :::
-
-::card

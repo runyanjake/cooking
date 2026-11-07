@@ -61,8 +61,11 @@ The roux should be a dark brown color and have a nutty aroma.
 - Toward the end of cooking, every 15 seconds or so precipitate will form in the roux. Scrape this off the bottom using a spoon or whisk.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://southernbite.com/chicken-sausage-and-shrimp-gumbo/)**
 :::
-
-::card

@@ -44,8 +44,11 @@ displayPhoto: ""
 - Using less mayonnaise makes for a thinner dressing, and in my opinion less mayo flavor is better.
 :::
 
+:::card[Recipe Card]
+::ingredients
+::instructions
+:::
+
 :::references
 - Reference Recipe **[HERE](https://www.onceuponachef.com/recipes/caesar-salad-dressing.html)**
 :::
-
-::card
