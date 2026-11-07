@@ -14,11 +14,6 @@ export default function RecipeCardPanel({ title, images }: RecipeCardPanelProps)
 
   return (
     <div className="space-y-6">
-      <p className="!mt-0 text-sm text-gray-600 dark:text-gray-400">
-        A 5×7 in card at 300 DPI. Print it on 5×7 photo paper or card stock
-        {doubleSided ? ', with the front and back on either side.' : '.'}
-      </p>
-
       <div className={doubleSided ? 'grid gap-6 xl:grid-cols-2' : ''}>
         {images.map((image) => (
           <figure key={image.fileName} className="!my-0">
@@ -30,7 +25,6 @@ export default function RecipeCardPanel({ title, images }: RecipeCardPanelProps)
               loading="lazy"
               className="h-auto w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white shadow-sm"
             />
-            {doubleSided && <figcaption>{image.label}</figcaption>}
           </figure>
         ))}
       </div>

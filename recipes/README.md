@@ -88,7 +88,7 @@ Markdown before the first section is intro prose; markdown after the last is out
 
 #### Recipe Card (optional)
 
-Add `::card` on its own line for a **Recipe Card** tab: a 5×7 in, 300 DPI PNG built from the ingredients and instructions, ready to download or print. Long recipes are split into a front and back automatically.
+Add `::card` on its own line for a **Recipe Card** tab: a 5×7 in, 300 DPI PNG built from the ingredients and instructions, ready to download or print. Long recipes are split into a front and back automatically. The tab always sits after Notes and before References, wherever `::card` appears in the file.
 
 To put a shorter version on the card, use the container form with **four** colons. Leave out a section to use the full one:
 

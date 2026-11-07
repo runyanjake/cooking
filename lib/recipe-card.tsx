@@ -456,7 +456,7 @@ function renderFace(recipe: Recipe, layout: CardLayout, face: CardFace): ReactEl
         }}
       >
         <div style={{ display: 'flex' }}>{pageUrl}</div>
-        <div style={{ display: 'flex' }}>{face.name === 'card' ? SITE_NAME : `${SITE_NAME}  ·  ${FACE_LABELS[face.name]}`}</div>
+        <div style={{ display: 'flex' }}>{SITE_NAME}</div>
       </div>
     </div>
   );
