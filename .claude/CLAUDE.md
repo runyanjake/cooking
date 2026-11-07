@@ -39,6 +39,7 @@ components/
   RecipeGridCard.tsx          # Recipe grid card for listing page
   RecipeTabs.tsx              # Tabbed recipe sections (client)
   RecipeMarkdown.tsx          # Renders a parsed markdown tree to React (server)
+  markdown-styles.ts          # Shared body typography classes (recipe tabs, About page)
   RecipeCardPanel.tsx         # Recipe Card tab: card image previews (server)
   RecipeCardImage.tsx         # Card preview that enlarges to full screen on click (client)
   RecipePageLayout.tsx        # Recipe detail page layout (server component)
