@@ -18,4 +18,5 @@
 - Card fonts are read from `node_modules/@fontsource/*` at build time; satori needs woff/ttf (not woff2) and doesn't support variable fonts
 - `lib/recipes.ts` uses Node.js `fs` — server-side only; never import in client components
 - Build warnings about `<img>` vs `<Image />` in RecipeMarkdown and RecipeCardImage are intentional
+- The About page is hand-written JSX, not markdown; it shares body typography with recipe tabs through `MARKDOWN_BODY_CLASSES`. Change spacing there rather than per page. Class strings must live in `components/` or `app/` — Tailwind doesn't scan `lib/`
 - Never add redundant ARIA roles on semantic elements (`<main>`, `<aside>`, `<footer>` already carry implicit roles)
