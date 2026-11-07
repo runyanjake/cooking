@@ -74,7 +74,6 @@ export interface RecipeCardImage {
   label: string;
   url: string;
   fileName: string;
-  downloadName: string;
 }
 
 let fonts: Font[] | null = null;
@@ -404,7 +403,6 @@ export async function getRecipeCardImages(recipe: Recipe): Promise<RecipeCardIma
     label: FACE_LABELS[face.name],
     fileName: `${face.name}.png`,
     url: recipeCardImageUrl(recipe, `${face.name}.png`),
-    downloadName: `${recipe.slug}-recipe-card${face.name === 'card' ? '' : `-${face.name}`}.png`,
   }));
 }
 
@@ -456,7 +454,7 @@ function renderFace(recipe: Recipe, layout: CardLayout, face: CardFace): ReactEl
         }}
       >
         <div style={{ display: 'flex' }}>{pageUrl}</div>
-        <div style={{ display: 'flex' }}>{SITE_NAME}</div>
+        <div style={{ display: 'flex' }}>{face.name === 'card' ? SITE_NAME : `${SITE_NAME}  ·  ${FACE_LABELS[face.name]}`}</div>
       </div>
     </div>
   );
