@@ -16,7 +16,7 @@ displayPhoto: ""
 ---
 
 :::photos
-![Image Coming Soon](./assets/not-found.svg "Image Coming Soon")
+![Chicken Tortilla Soup](./assets/chicken-tortilla-soup.jpg "Chicken Tortilla Soup")
 :::
 
 :::ingredients

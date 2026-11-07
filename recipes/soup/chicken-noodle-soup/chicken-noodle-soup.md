@@ -18,7 +18,7 @@ displayPhoto: ""
 A comforting chicken noodle soup perfect for rainy or sick days. Made easy in the Instant Pot but can be adapted for stovetop cooking
 
 :::photos
-![Image Coming Soon](./assets/not-found.svg "Image Coming Soon")
+![Chicken Noodle Soup](./assets/chicken-noodle-soup.jpg "Chicken Noodle Soup")
 :::
 
 :::ingredients
