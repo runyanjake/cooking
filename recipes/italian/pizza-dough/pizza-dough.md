@@ -18,7 +18,9 @@ displayPhoto: "./assets/pizza-dough.jpg"
 :::photos
 ![Pizza Dough](./assets/pizza-dough.jpg "Pizza Dough")
 
+![Big Sur Pizza](./assets/big-sur-pizza.jpg "Big Sur Pizza")
 ![Elote Pizza](./assets/elote-pizza.jpg "Elote Pizza")
+![Fig Prosciutto Pizza](./assets/fig-prosciutto-pizza.jpg "Fig Prosciutto Pizza")
 :::
 
 :::ingredients

@@ -4,7 +4,7 @@ slug: "pho"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
 category: "vietnamese"
-tags: ["vietnamese", "soup", "meal-prep"]
+tags: ["vietnamese", "soup"]
 cookTime: 360
 prepTime: 20
 servings: 8
