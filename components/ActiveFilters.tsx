@@ -1,6 +1,7 @@
 'use client';
 
 import type { FilterState } from '@/lib/types';
+import { capitalize } from '@/lib/format';
 
 interface ActiveFiltersProps {
   filters: FilterState;
@@ -19,11 +20,11 @@ export default function ActiveFilters({ filters, onFilterChange }: ActiveFilters
       ? [{ key: 'search', label: `“${filters.search}”`, remove: { ...filters, search: '' } }]
       : []),
     ...(filters.category
-      ? [{ key: 'category', label: filters.category.charAt(0).toUpperCase() + filters.category.slice(1), remove: { ...filters, category: '' } }]
+      ? [{ key: 'category', label: capitalize(filters.category), remove: { ...filters, category: '' } }]
       : []),
     ...filters.selectedTags.map((tag) => ({
       key: `tag-${tag}`,
-      label: tag,
+      label: capitalize(tag),
       remove: { ...filters, selectedTags: filters.selectedTags.filter((t) => t !== tag) },
     })),
   ];

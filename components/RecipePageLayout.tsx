@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Recipe } from '@/lib/recipes';
+import { capitalize } from '@/lib/format';
 
 interface RecipePageLayoutProps {
   recipe: Recipe;
@@ -83,7 +84,7 @@ export default function RecipePageLayout({ recipe, children }: RecipePageLayoutP
                 role="listitem"
                 className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               >
-                {tag}
+                {capitalize(tag)}
               </Link>
             ))}
           </div>
