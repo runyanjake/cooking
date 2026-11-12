@@ -50,6 +50,7 @@ lib/
   recipe-content.test.ts      # Format tests; also parses every real recipe (npm test)
   recipe-card.tsx             # Card layout (measured with satori) and PNG rendering
   recipe-urls.ts              # Client-safe helper that maps ./assets/ paths to served URLs
+  format.ts                   # Client-safe display formatting (capitalize categories/tags)
 
 recipes/                      # ALL recipe content lives here (markdown + images together)
   [category]/
@@ -69,5 +70,5 @@ public/
 - **Content first**: recipe pages are minimal — no sidebar, just the recipe
 - **Server components by default**: only add `'use client'` when interactivity is needed
 - **The markdown is the recipe**: tabs, their titles and order, and what the card prints are all written in the `.md` file. The renderer only turns what's written into the page; never add hardcoded tab names, ordering, or fallbacks
-- **No taxonomy file**: categories and tags are derived directly from frontmatter across all recipes — no external registry to keep in sync
+- **No taxonomy file**: categories and tags are derived directly from frontmatter across all recipes — no external registry to keep in sync. They stay lowercase in frontmatter and URLs; display them through `capitalize` from `lib/format.ts`
 - **Content is top level**: markdown and images are colocated in `recipes/`; images are served by a statically prerendered route handler, so there's no copy step. `public/` is only for site branding and data

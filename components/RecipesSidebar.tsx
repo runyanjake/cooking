@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import FacetGroup from './FacetGroup';
 import type { FacetCounts, FilterState } from '@/lib/types';
+import { capitalize } from '@/lib/format';
 
 interface RecipesSidebarProps {
   categories: string[];
@@ -14,10 +15,6 @@ interface RecipesSidebarProps {
 
 const COLLAPSED_CATEGORY_COUNT = 8;
 const COLLAPSED_TAG_COUNT = 10;
-
-function capitalize(value: string): string {
-  return value.charAt(0).toUpperCase() + value.slice(1);
-}
 
 function ShowMoreButton({ expanded, hiddenCount, onClick }: { expanded: boolean; hiddenCount: number; onClick: () => void }) {
   return (
@@ -199,7 +196,7 @@ export default function RecipesSidebar({ categories, tags, facetCounts, filters,
                     onChange={() => handleTagToggle(tag)}
                     className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 accent-blue-600"
                   />
-                  <span className="flex-1 truncate">{tag}</span>
+                  <span className="flex-1 truncate">{capitalize(tag)}</span>
                   <span className="text-xs tabular-nums text-gray-500 dark:text-gray-400">{count}</span>
                 </label>
               );

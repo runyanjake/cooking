@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { RecipeMetadata } from '@/lib/recipes';
 import { resolveRecipeAssetUrl } from '@/lib/recipe-urls';
+import { capitalize } from '@/lib/format';
 
 interface RecipeCardProps {
   recipe: RecipeMetadata;
@@ -57,7 +58,7 @@ export default function RecipeGridCard({ recipe }: RecipeCardProps) {
               role="listitem"
               className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded"
             >
-              {tag}
+              {capitalize(tag)}
             </span>
           ))}
           {recipe.tags.length > 3 && (

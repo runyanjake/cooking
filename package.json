@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "node --import tsx --test lib/recipe-content.test.ts"
+    "test": "node --import tsx --test lib/*.test.ts"
   },
   "dependencies": {
     "@fontsource/inter": "^5.3.0",
