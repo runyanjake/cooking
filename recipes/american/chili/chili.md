@@ -3,8 +3,8 @@ title: "Classic Chili"
 slug: "chili"
 date: "2026-02-24"
 lastUpdated: "2026-02-24"
-category: "soup"
-tags: ["soup", "american"]
+category: "american"
+tags: ["american", "soup"]
 cookTime: 60
 prepTime: 20
 servings: 8

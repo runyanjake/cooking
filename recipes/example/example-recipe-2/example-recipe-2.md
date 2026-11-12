@@ -3,8 +3,8 @@ title: "Perfect Chocolate Chip Cookies"
 slug: "chocolate-chip-cookies"
 date: "2026-02-08"
 lastUpdated: "2026-02-08"
-category: "desserts"
-tags: ["cookies", "chocolate", "baking", "dessert", "american"]
+category: "dessert"
+tags: ["dessert", cookies", "chocolate"]
 cookTime: 12
 prepTime: 15
 servings: 24

@@ -3,7 +3,7 @@ title: "Pizza Dough"
 slug: "pizza-dough"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
-category: "pizza"
+category: "italian"
 tags: ["italian", "pizza"]
 cookTime: 40
 prepTime: 10

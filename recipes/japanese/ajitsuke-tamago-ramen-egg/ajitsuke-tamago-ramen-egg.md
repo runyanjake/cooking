@@ -4,7 +4,7 @@ slug: "ajitsuke-tamago-ramen-egg"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
 category: "japanese"
-tags: ["japanese", "sides"]
+tags: ["japanese", "side"]
 cookTime: 10
 prepTime: 10
 servings: 12

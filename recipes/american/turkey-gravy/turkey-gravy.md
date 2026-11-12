@@ -3,8 +3,8 @@ title: "Turkey Gravy"
 slug: "turkey-gravy"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
-category: "meat"
-tags: ["meat", "thanksgiving", "sides"]
+category: "american"
+tags: ["american", "side", "thanksgiving"]
 cookTime: 20
 prepTime: 5
 servings: 10

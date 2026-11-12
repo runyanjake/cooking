@@ -4,7 +4,7 @@ slug: "mexican-rice"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
 category: "mexican"
-tags: ["mexican", "sides"]
+tags: ["mexican", "side"]
 cookTime: 40
 prepTime: 10
 servings: 6

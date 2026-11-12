@@ -3,8 +3,8 @@ title: "Banana-Chocolate Smoothie"
 slug: "banana-chocolate-smoothie"
 date: "2026-03-13"
 lastUpdated: "2026-03-13"
-category: "drinks"
-tags: ["drinks", "smoothie"]
+category: "drink"
+tags: ["drink", "smoothie"]
 cookTime: 5
 prepTime: 5
 servings: 2

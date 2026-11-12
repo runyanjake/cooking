@@ -4,7 +4,7 @@ slug: "fajita-vegetables"
 date: "2026-04-20"
 lastUpdated: "2026-04-20"
 category: "mexican"
-tags: ["mexican", "sides"]
+tags: ["mexican", "side"]
 cookTime: 10
 prepTime: 10
 servings: 8

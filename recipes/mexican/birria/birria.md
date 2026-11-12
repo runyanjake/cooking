@@ -3,8 +3,8 @@ title: "Birria"
 slug: "birria"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
-category: "meat"
-tags: ["meat"]
+category: "mexican"
+tags: ["mexican", "meat"]
 cookTime: 210
 prepTime: 20
 servings: 10

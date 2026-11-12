@@ -4,7 +4,7 @@ slug: "elote"
 date: "2026-02-10"
 lastUpdated: "2026-02-13"
 category: "mexican"
-tags: ["mexican"]
+tags: ["mexican", "side"]
 cookTime: 60
 prepTime: 5
 servings: 8

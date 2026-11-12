@@ -4,7 +4,7 @@ slug: "chicken-parmesan"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
 category: "italian"
-tags: ["italian"]
+tags: ["italian", "meat"]
 cookTime: 90
 prepTime: 20
 servings: 6

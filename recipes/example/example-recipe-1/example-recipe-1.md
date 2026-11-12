@@ -3,8 +3,8 @@ title: "Classic Chicken Parmesan"
 slug: "chicken-parmesan"
 date: "2026-02-05"
 lastUpdated: "2026-02-05"
-category: "mains"
-tags: ["italian", "chicken", "comfort-food", "family-friendly"]
+category: "italian"
+tags: ["italian", "chicken"]
 cookTime: 45
 prepTime: 20
 servings: 4

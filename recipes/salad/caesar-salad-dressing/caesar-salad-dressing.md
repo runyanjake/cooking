@@ -4,7 +4,7 @@ slug: "caesar-salad-dressing"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
 category: "salad"
-tags: ["salad"]
+tags: ["salad", "dressing"]
 cookTime: 10
 prepTime: 5
 servings: 2

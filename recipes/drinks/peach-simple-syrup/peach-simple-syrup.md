@@ -3,8 +3,8 @@ title: "Peach Simple Syrup"
 slug: "peach-simple-syrup"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
-category: "drinks"
-tags: ["drinks"]
+category: "drink"
+tags: ["drink"]
 cookTime: 60
 prepTime: 10
 servings: 10

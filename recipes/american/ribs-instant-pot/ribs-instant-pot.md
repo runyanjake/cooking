@@ -3,8 +3,8 @@ title: "Instant Pot Ribs"
 slug: "ribs-instant-pot"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
-category: "meat"
-tags: ["meat", "barbecue"]
+category: "american"
+tags: ["american", "meat", "barbecue"]
 cookTime: 180
 prepTime: 15
 servings: 6

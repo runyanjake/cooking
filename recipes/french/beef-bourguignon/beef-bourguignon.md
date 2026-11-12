@@ -3,8 +3,8 @@ title: "Beef Bourguignon"
 slug: "beef-bourguignon"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
-category: "meat"
-tags: ["meat", "french"]
+category: "french"
+tags: ["french", "stew"]
 cookTime: 210
 prepTime: 20
 servings: 8

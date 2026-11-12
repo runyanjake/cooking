@@ -3,8 +3,8 @@ title: "Cauliflower Mash"
 slug: "cauliflower-mash"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
-category: "sides"
-tags: ["sides", "thanksgiving"]
+category: "american"
+tags: ["american", "side", "thanksgiving"]
 cookTime: 30
 prepTime: 10
 servings: 6

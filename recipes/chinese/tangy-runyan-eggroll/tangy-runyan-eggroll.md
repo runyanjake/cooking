@@ -4,7 +4,7 @@ slug: "tangy-runyan-eggroll"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
 category: "chinese"
-tags: ["chinese", "sides"]
+tags: ["chinese", "side"]
 cookTime: 60
 prepTime: 30
 servings: 40

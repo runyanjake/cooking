@@ -3,8 +3,8 @@ title: "Strawberry Smoothie"
 slug: "strawberry-smoothie"
 date: "2026-03-10"
 lastUpdated: "2026-03-10"
-category: "drinks"
-tags: ["drinks", "smoothie"]
+category: "drink"
+tags: ["drink", "smoothie"]
 cookTime: 5
 prepTime: 5
 servings: 2

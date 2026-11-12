@@ -4,7 +4,7 @@ slug: "creamy-jalapeno-sauce"
 date: "2026-02-16"
 lastUpdated: "2026-02-16"
 category: "mexican"
-tags: ["mexican", "sauces"]
+tags: ["mexican", "sauce"]
 cookTime: 5
 prepTime: 5
 servings: 15

@@ -3,8 +3,8 @@ title: "Pickled Red Onions"
 slug: "pickled-red-onions"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
-category: "sides"
-tags: ["sides"]
+category: "side"
+tags: ["side"]
 cookTime: 10
 prepTime: 20
 servings: 8

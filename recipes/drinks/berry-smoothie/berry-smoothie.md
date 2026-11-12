@@ -3,8 +3,8 @@ title: "Berry Smoothie"
 slug: "berry-smoothie"
 date: "2026-03-06"
 lastUpdated: "2026-03-06"
-category: "drinks"
-tags: ["drinks", "smoothie"]
+category: "drink"
+tags: ["drink", "smoothie"]
 cookTime: 5
 prepTime: 5
 servings: 2

@@ -3,8 +3,8 @@ title: "Jamaican Jerk Chicken"
 slug: "jamaican-jerk-chicken"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
-category: "meat"
-tags: ["meat"]
+category: "jamaican"
+tags: ["jamaican", "meat"]
 cookTime: 60
 prepTime: 20
 servings: 10

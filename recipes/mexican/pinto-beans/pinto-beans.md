@@ -4,7 +4,7 @@ slug: "pinto-beans"
 date: "2026-02-11"
 lastUpdated: "2026-02-12"
 category: "mexican"
-tags: ["mexican", "sides"]
+tags: ["mexican", "side"]
 cookTime: 32
 prepTime: 5
 servings: 12

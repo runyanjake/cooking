@@ -3,8 +3,8 @@ title: "Sous Vide Garlic Mashed Potatoes"
 slug: "sous-vide-mashed-potatoes"
 date: "2026-02-10"
 lastUpdated: "2026-02-10"
-category: "sides"
-tags: ["sides", "thanksgiving"]
+category: "american"
+tags: ["american", "side", "thanksgiving"]
 cookTime: 90
 prepTime: 15
 servings: 6

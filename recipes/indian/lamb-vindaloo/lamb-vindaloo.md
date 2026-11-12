@@ -4,7 +4,7 @@ slug: "lamb-vindaloo"
 date: "2026-04-20"
 lastUpdated: "2026-04-20"
 category: "indian"
-tags: ["indian", "goan", "lamb", "spicy"]
+tags: ["indian", "curry", "lamb"]
 cookTime: 90
 prepTime: 45
 servings: 10
